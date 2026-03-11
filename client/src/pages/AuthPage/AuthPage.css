@@ -35,7 +35,7 @@
 }
 
 .auth-left__logo {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 2.2rem;
   font-weight: 700;
   color: #f5ede0;
@@ -61,7 +61,7 @@
 }
 
 .auth-left__headline {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 2.6rem;
   font-weight: 600;
   color: #f5ede0;
@@ -131,7 +131,7 @@
 }
 
 .auth-form-wrapper__title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.9rem;
   font-weight: 600;
   color: #2c1a0e;

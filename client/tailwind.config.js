@@ -30,7 +30,7 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         sans:  ['"Lato"', 'system-ui', 'sans-serif'],
       },
     },
