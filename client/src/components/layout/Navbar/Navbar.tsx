@@ -1,6 +1,6 @@
-import { useRef, useState, useEffect } from 'react';
-import { User } from '../../../types';
-import './Navbar.css';
+import { useRef, useState, useEffect } from "react";
+import { User } from "../../../types";
+import "./Navbar.css";
 
 interface Props {
   user: User;
@@ -9,14 +9,19 @@ interface Props {
 }
 
 function getInitials(name: string) {
-  return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+  return name
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
 }
 
 export default function Navbar({ user, onLogout, onOpenSettings }: Props) {
-  const [open, setOpen]     = useState(false);
+  const [open, setOpen] = useState(false);
   const [avatar, setAvatar] = useState<string | null>(null);
-  const dropdownRef         = useRef<HTMLDivElement>(null);
-  const fileInputRef        = useRef<HTMLInputElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem(`avatar_${user.id}`);
@@ -25,12 +30,15 @@ export default function Navbar({ user, onLogout, onOpenSettings }: Props) {
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setOpen(false);
       }
     };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   }, []);
 
   const handleAvatarUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,19 +58,22 @@ export default function Navbar({ user, onLogout, onOpenSettings }: Props) {
     <nav className="navbar">
       <div className="navbar__left" />
 
-      <div className="navbar__center">Interio</div>
+      <div className="navbar__center">INTERIO</div>
 
       <div className="navbar__right" ref={dropdownRef}>
         {/* Avatar — click opens dropdown only */}
         <button
           className="navbar__avatar-btn"
-          onClick={() => setOpen(o => !o)}
+          onClick={() => setOpen((o) => !o)}
           aria-label="Open user menu"
         >
-          {avatar
-            ? <img src={avatar} alt="avatar" className="navbar__avatar-img" />
-            : <span className="navbar__avatar-initials">{getInitials(user.name)}</span>
-          }
+          {avatar ? (
+            <img src={avatar} alt="avatar" className="navbar__avatar-img" />
+          ) : (
+            <span className="navbar__avatar-initials">
+              {getInitials(user.name)}
+            </span>
+          )}
         </button>
 
         {/* Hidden file input — triggered only from dropdown */}
@@ -80,10 +91,11 @@ export default function Navbar({ user, onLogout, onOpenSettings }: Props) {
             {/* User info header */}
             <div className="navbar__dropdown-header">
               <div className="navbar__dropdown-avatar">
-                {avatar
-                  ? <img src={avatar} alt="avatar" />
-                  : <span>{getInitials(user.name)}</span>
-                }
+                {avatar ? (
+                  <img src={avatar} alt="avatar" />
+                ) : (
+                  <span>{getInitials(user.name)}</span>
+                )}
               </div>
               <div className="navbar__dropdown-info">
                 <div className="navbar__dropdown-name">{user.name}</div>
@@ -97,9 +109,14 @@ export default function Navbar({ user, onLogout, onOpenSettings }: Props) {
                 className="navbar__dropdown-btn"
                 onClick={() => fileInputRef.current?.click()}
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-                  <circle cx="12" cy="13" r="4"/>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                  <circle cx="12" cy="13" r="4" />
                 </svg>
                 Choose photo
               </button>
@@ -107,11 +124,19 @@ export default function Navbar({ user, onLogout, onOpenSettings }: Props) {
               {/* Options → settings modal */}
               <button
                 className="navbar__dropdown-btn"
-                onClick={() => { setOpen(false); onOpenSettings(); }}
+                onClick={() => {
+                  setOpen(false);
+                  onOpenSettings();
+                }}
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="3"/>
-                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
                 </svg>
                 Options
               </button>
@@ -121,12 +146,20 @@ export default function Navbar({ user, onLogout, onOpenSettings }: Props) {
               {/* Sign out */}
               <button
                 className="navbar__dropdown-btn navbar__dropdown-btn--danger"
-                onClick={() => { setOpen(false); onLogout(); }}
+                onClick={() => {
+                  setOpen(false);
+                  onLogout();
+                }}
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-                  <polyline points="16 17 21 12 16 7"/>
-                  <line x1="21" y1="12" x2="9" y2="12"/>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                  <polyline points="16 17 21 12 16 7" />
+                  <line x1="21" y1="12" x2="9" y2="12" />
                 </svg>
                 Sign Out
               </button>

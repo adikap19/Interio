@@ -3,6 +3,14 @@
   min-height: 100vh;
 }
 
+/* Hide browser-native password reveal button */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-contacts-auto-fill-button {
+  display: none;
+}
+
 /* ── Left Panel ── */
 .auth-left {
   display: none;
