@@ -39,9 +39,9 @@ const STYLES = [
     description:
       "Layered textiles, hand-woven rugs, trailing plants, and artifacts gathered from around the world — bohemian interiors tell a personal story. Rich jewel tones and earthy terracottas collide in beautiful, unapologetic abundance.",
     images: [
-      "https://images.unsplash.com/photo-1586105251261-72a756497a11?w=600&q=80",
-      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=600&q=80",
-      "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&q=80",
+      "https://www.hogandesignandconstruction.com/hs-fs/hubfs/luis-j-corniel-bJGBQj5cf6w-unsplash%20(1).jpg?width=1920&height=1277&name=luis-j-corniel-bJGBQj5cf6w-unsplash%20(1).jpg",
+      "https://miro.medium.com/0*ueJXGyCClvpnTcJH",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYAlwNmgO0ouAm8SH9Amx1LNmyqLLu-7I-ug&s",
     ],
   },
   {
