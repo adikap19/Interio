@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /c/Users/adika/Desktop/myProject status)",
+      "Bash(npm install:*)"
+    ]
+  }
+}

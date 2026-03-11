@@ -1,0 +1,26 @@
+.dashboard-page {
+  min-height: 100vh;
+  background: #faf8f5;
+}
+
+.dashboard-page__main {
+  padding-top: 64px; /* navbar height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 0.5rem;
+}
+
+.dashboard-page__greeting {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.2rem;
+  color: #3b2a1a;
+  font-weight: 600;
+}
+
+.dashboard-page__hint {
+  font-size: 1rem;
+  color: #a08060;
+}
