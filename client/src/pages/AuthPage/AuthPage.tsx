@@ -175,7 +175,7 @@ export default function AuthPage({ onAuth }: Props) {
         </div>
 
         <div className="auth-left__bottom">
-          © 2025 Interio. All rights reserved.
+          © 2025 INTERIO. All rights reserved.
         </div>
       </div>
 
