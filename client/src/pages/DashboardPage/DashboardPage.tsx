@@ -17,9 +17,9 @@ const STYLES = [
     description:
       "Born from long winters and a deep respect for craftsmanship, Scandinavian design strips away the unnecessary to reveal pure, quiet beauty. Natural wood, muted whites, and honest materials come together in spaces that feel both functional and deeply restful.",
     images: [
-      "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80",
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80",
+      "https://media.designcafe.com/wp-content/uploads/2020/11/18133838/scandinavian-interior-design-ideas.jpg",
+      "https://www.thespruce.com/thmb/0Af7qsguKz8O01cILcE_cv0h_fY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EmilyHendersonMoutainHouseLivingRoomHiRes1-487ff9fa0d1e4bf0b6c4d0e01da1baec.jpg",
+      "https://www.nordicessentials.uk/cdn/shop/articles/1._Scandinavian_design_minimalist_design_interior_design_home_decor_furniture_design_Nordic_design_hygge_sustainable_design_eco-friendly_design_Danish_design_9d6c1db4-beac-47f0-9274-d.jpg?v=1757417054&width=1000",
     ],
   },
   {
@@ -28,9 +28,9 @@ const STYLES = [
     description:
       "Every object earns its place. Modern minimalism is not about emptiness — it is about intention. Clean lines, a restrained palette of whites and warm greys, and carefully chosen statement pieces create spaces where the mind can finally breathe.",
     images: [
-      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80",
+      "https://hips.hearstapps.com/hmg-prod/images/22709010-2007946149450467-5502321846021783552-n-1538427422.jpg?crop=0.6xw:1xh;center,top",
+      "https://www.modernfurnishings.com/cdn/shop/articles/bringing-modern-aesthetics-to-your-home-modern-studio.jpg?v=1717752164",
+      "https://oakandpineonline.co.uk/wp-content/uploads/2023/04/interior-design.jpg",
     ],
   },
   {
@@ -61,9 +61,9 @@ const STYLES = [
     description:
       "Where Japanese wabi-sabi meets Scandinavian hygge, Japandi finds harmony. Low-profile furniture, neutral tones of clay and ash, natural textures, and a devotion to simplicity create interiors that feel meditative, timeless, and profoundly serene.",
     images: [
-      "https://images.unsplash.com/photo-1611967164521-abae8fba4668?w=600&q=80",
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=80",
-      "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=600&q=80",
+      "https://i.etsystatic.com/51212267/r/il/a09b03/5938487374/il_570xN.5938487374_ciel.jpg",
+      "https://interiordesign.net/wp-content/uploads/2024/10/Interior-Design-The-Rasidence-Studio-Right-Angle-the-rasidence-10.jpg",
+      "https://cdn.home-designing.com/wp-content/uploads/2022/01/modular-sofa-4-1024x683.jpg",
     ],
   },
   {
@@ -72,8 +72,8 @@ const STYLES = [
     description:
       "Wildflowers in ceramic pitchers, linen curtains catching morning light, vintage china stacked on open shelves — cottagecore is an ode to slowness and the pastoral life. Warm creams, sage greens, and dusty roses wrap every corner in gentle nostalgia.",
     images: [
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80",
-      "https://images.unsplash.com/photo-1567225557594-88d73e55f2cb?w=600&q=80",
+      "https://i.pinimg.com/736x/f8/e8/40/f8e8406efcfc471662a1258d84ace6fc.jpg",
+      "https://cdn.homedit.com/wp-content/uploads/2022/10/Understanding-the-Cottagecore-Aesthetic.jpg",
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
     ],
   },
@@ -116,7 +116,6 @@ function StyleSection({
         <div className="style-section__index">0{index + 1}</div>
         <h2 className="style-section__name">{style.name}</h2>
         <p className="style-section__desc">{style.description}</p>
-        <button className="style-section__cta">Explore Style</button>
       </div>
       <div className="style-section__images">
         {style.images.map((src, i) => (

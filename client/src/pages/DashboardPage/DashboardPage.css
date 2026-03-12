@@ -179,7 +179,7 @@
   margin: 0;
 }
 
-.style-section__cta {
+/* .style-section__cta {
   align-self: flex-start;
   margin-top: 0.5rem;
   padding: 0.6rem 1.4rem;
@@ -194,13 +194,13 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: background 0.18s, color 0.18s, border-color 0.18s;
-}
+} */
 
-.style-section__cta:hover {
+/* .style-section__cta:hover {
   background: #5c3a1e;
   color: #f5ede0;
   border-color: #5c3a1e;
-}
+} */
 
 /* Images panel */
 .style-section__images {
