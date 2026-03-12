@@ -205,7 +205,9 @@ export default function ExploreFurniturePage({ onSelectCategory }: Props) {
             style={{ "--accent": cat.accent } as React.CSSProperties}
             onClick={() => onSelectCategory(cat.id)}
           >
-            <div className="furniture-card__icon">{cat.icon}</div>
+            <div className="furniture-card__icon-zone">
+              <div className="furniture-card__icon">{cat.icon}</div>
+            </div>
             <div className="furniture-card__body">
               <h3 className="furniture-card__label">{cat.label}</h3>
               <p className="furniture-card__desc">{cat.description}</p>
