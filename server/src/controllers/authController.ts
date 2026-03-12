@@ -6,6 +6,8 @@ import { AuthRequest } from '../middleware/auth';
 
 const prisma = new PrismaClient();
 
+const USER_SELECT = { id: true, email: true, name: true, avatarUrl: true, createdAt: true } as const;
+
 export const register = async (req: Request, res: Response): Promise<void> => {
   const { email, password, name } = req.body;
   if (!email || !password || !name) {
@@ -20,7 +22,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
   const hashed = await bcrypt.hash(password, 10);
   const user = await prisma.user.create({
     data: { email, password: hashed, name },
-    select: { id: true, email: true, name: true, createdAt: true },
+    select: USER_SELECT,
   });
   res.status(201).json({ token: signToken(user.id), user });
 };
@@ -36,24 +38,21 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     res.status(401).json({ error: 'Invalid credentials' });
     return;
   }
-  res.json({
-    token: signToken(user.id),
-    user: { id: user.id, email: user.email, name: user.name, createdAt: user.createdAt },
-  });
+  res.json({ token: signToken(user.id), user: { id: user.id, email: user.email, name: user.name, avatarUrl: user.avatarUrl, createdAt: user.createdAt } });
 };
 
 export const getMe = async (req: AuthRequest, res: Response): Promise<void> => {
-  const user = await prisma.user.findUnique({
-    where: { id: req.userId },
-    select: { id: true, email: true, name: true, createdAt: true },
-  });
+  const user = await prisma.user.findUnique({ where: { id: req.userId }, select: USER_SELECT });
   if (!user) { res.status(404).json({ error: 'User not found' }); return; }
   res.json(user);
 };
 
 export const updateProfile = async (req: AuthRequest, res: Response): Promise<void> => {
-  const { name, email } = req.body;
-  if (!name && !email) { res.status(400).json({ error: 'Nothing to update' }); return; }
+  const { name, email, avatarUrl } = req.body;
+  if (!name && !email && avatarUrl === undefined) {
+    res.status(400).json({ error: 'Nothing to update' });
+    return;
+  }
 
   if (email) {
     const existing = await prisma.user.findFirst({ where: { email, NOT: { id: req.userId } } });
@@ -62,8 +61,12 @@ export const updateProfile = async (req: AuthRequest, res: Response): Promise<vo
 
   const user = await prisma.user.update({
     where: { id: req.userId },
-    data: { ...(name && { name }), ...(email && { email }) },
-    select: { id: true, email: true, name: true, createdAt: true },
+    data: {
+      ...(name && { name }),
+      ...(email && { email }),
+      ...(avatarUrl !== undefined && { avatarUrl }),
+    },
+    select: USER_SELECT,
   });
   res.json(user);
 };

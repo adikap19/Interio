@@ -1,11 +1,13 @@
 import { useRef, useState, useEffect } from "react";
 import { User } from "../../../types";
+import api from "../../../services/api";
 import "./Navbar.css";
 
 interface Props {
   user: User;
   onLogout: () => void;
   onOpenSettings: () => void;
+  onUserUpdate: (updated: User) => void;
 }
 
 function getInitials(name: string) {
@@ -17,23 +19,14 @@ function getInitials(name: string) {
     .slice(0, 2);
 }
 
-export default function Navbar({ user, onLogout, onOpenSettings }: Props) {
+export default function Navbar({ user, onLogout, onOpenSettings, onUserUpdate }: Props) {
   const [open, setOpen] = useState(false);
-  const [avatar, setAvatar] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem(`avatar_${user.id}`);
-    if (saved) setAvatar(saved);
-  }, [user.id]);
-
-  useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setOpen(false);
       }
     };
@@ -45,10 +38,14 @@ export default function Navbar({ user, onLogout, onOpenSettings }: Props) {
     const file = e.target.files?.[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = (ev) => {
-      const result = ev.target?.result as string;
-      setAvatar(result);
-      localStorage.setItem(`avatar_${user.id}`, result);
+    reader.onload = async (ev) => {
+      const avatarUrl = ev.target?.result as string;
+      try {
+        const { data } = await api.patch<User>("/auth/profile", { avatarUrl });
+        onUserUpdate(data);
+      } catch {
+        // silently ignore upload errors
+      }
     };
     reader.readAsDataURL(file);
     setOpen(false);
@@ -67,8 +64,8 @@ export default function Navbar({ user, onLogout, onOpenSettings }: Props) {
           onClick={() => setOpen((o) => !o)}
           aria-label="Open user menu"
         >
-          {avatar ? (
-            <img src={avatar} alt="avatar" className="navbar__avatar-img" />
+          {user.avatarUrl ? (
+            <img src={user.avatarUrl} alt="avatar" className="navbar__avatar-img" />
           ) : (
             <span className="navbar__avatar-initials">
               {getInitials(user.name)}
@@ -91,8 +88,8 @@ export default function Navbar({ user, onLogout, onOpenSettings }: Props) {
             {/* User info header */}
             <div className="navbar__dropdown-header">
               <div className="navbar__dropdown-avatar">
-                {avatar ? (
-                  <img src={avatar} alt="avatar" />
+                {user.avatarUrl ? (
+                  <img src={user.avatarUrl} alt="avatar" />
                 ) : (
                   <span>{getInitials(user.name)}</span>
                 )}

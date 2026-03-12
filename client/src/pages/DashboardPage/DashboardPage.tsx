@@ -38,6 +38,7 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
         user={user}
         onLogout={handleLogout}
         onOpenSettings={() => setSettingsOpen(true)}
+        onUserUpdate={(updated) => setUser(updated)}
       />
       <SubNav
         active={activeNav}
