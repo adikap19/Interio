@@ -10,6 +10,52 @@ interface Props {
   onLogout: () => void;
 }
 
+const NAV_ITEMS = [
+  {
+    id: "moodboard",
+    label: "Mood Board",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="3" y="3" width="7" height="7" rx="1" />
+        <rect x="14" y="3" width="7" height="7" rx="1" />
+        <rect x="3" y="14" width="7" height="7" rx="1" />
+        <rect x="14" y="14" width="7" height="7" rx="1" />
+      </svg>
+    ),
+  },
+  {
+    id: "explore",
+    label: "Explore Designs",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    ),
+  },
+  {
+    id: "furniture",
+    label: "Explore Furniture",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M3 9V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v3" />
+        <path d="M3 9a2 2 0 0 0-2 2v4h22v-4a2 2 0 0 0-2-2H3z" />
+        <path d="M5 15v4M19 15v4" />
+      </svg>
+    ),
+  },
+  {
+    id: "style",
+    label: "Style Your Space",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" />
+      </svg>
+    ),
+  },
+];
+
 const STYLES = [
   {
     id: "scandinavian",
@@ -79,6 +125,25 @@ const STYLES = [
   },
 ];
 
+function SubNav({ active, onSelect }: { active: string; onSelect: (id: string) => void }) {
+  return (
+    <nav className="subnav">
+      <div className="subnav__inner">
+        {NAV_ITEMS.map((item) => (
+          <button
+            key={item.id}
+            className={`subnav__item ${active === item.id ? "subnav__item--active" : ""}`}
+            onClick={() => onSelect(item.id)}
+          >
+            <span className="subnav__icon">{item.icon}</span>
+            <span className="subnav__label">{item.label}</span>
+          </button>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
 function StyleSection({
   style,
   index,
@@ -139,6 +204,7 @@ function StyleSection({
 export default function DashboardPage({ user: initialUser, onLogout }: Props) {
   const [user, setUser] = useState(initialUser);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [activeNav, setActiveNav] = useState("explore");
   const heroRef = useRef<HTMLDivElement>(null);
 
   const handleLogout = () => {
@@ -159,45 +225,60 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
         onLogout={handleLogout}
         onOpenSettings={() => setSettingsOpen(true)}
       />
+      <SubNav active={activeNav} onSelect={setActiveNav} />
 
-      {/* Hero */}
-      <section className="dashboard-hero" ref={heroRef}>
-        <div className="dashboard-hero__bg" />
-        <div className="dashboard-hero__content">
-          <p className="dashboard-hero__eyebrow">
-            Welcome, {user.name.split(" ")[0]}
+      {activeNav === "explore" ? (
+        <>
+          {/* Hero */}
+          <section className="dashboard-hero" ref={heroRef}>
+            <div className="dashboard-hero__bg" />
+            <div className="dashboard-hero__content">
+              <p className="dashboard-hero__eyebrow">
+                Welcome, {user.name.split(" ")[0]}
+              </p>
+              <h1 className="dashboard-hero__title">
+                Explore Different
+                <br />
+                <em>Design Styles</em>
+              </h1>
+              <p className="dashboard-hero__subtitle">
+                Curate your perfect interior. Discover six timeless aesthetics,
+                <br />
+                save what inspires you, and build moodboards that feel like home.
+              </p>
+              <button className="dashboard-hero__btn" onClick={handleScroll}>
+                Start Exploring
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <polyline points="19 12 12 19 5 12" />
+                </svg>
+              </button>
+            </div>
+          </section>
+
+          {/* Style sections */}
+          <div className="dashboard-styles">
+            {STYLES.map((style, i) => (
+              <StyleSection key={style.id} style={style} index={i} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <div className="dashboard-placeholder">
+          <p className="dashboard-placeholder__label">
+            {NAV_ITEMS.find((n) => n.id === activeNav)?.label}
           </p>
-          <h1 className="dashboard-hero__title">
-            Explore Different
-            <br />
-            <em>Design Styles</em>
-          </h1>
-          <p className="dashboard-hero__subtitle">
-            Curate your perfect interior. Discover six timeless aesthetics,
-            <br />
-            save what inspires you, and build moodboards that feel like home.
+          <h2 className="dashboard-placeholder__title">Coming Soon</h2>
+          <p className="dashboard-placeholder__sub">
+            This section is currently being crafted. Check back soon.
           </p>
-          <button className="dashboard-hero__btn" onClick={handleScroll}>
-            Start Exploring
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-            >
-              <line x1="12" y1="5" x2="12" y2="19" />
-              <polyline points="19 12 12 19 5 12" />
-            </svg>
-          </button>
         </div>
-      </section>
-
-      {/* Style sections */}
-      <div className="dashboard-styles">
-        {STYLES.map((style, i) => (
-          <StyleSection key={style.id} style={style} index={i} />
-        ))}
-      </div>
+      )}
 
       {/* Footer */}
       <footer className="dashboard-footer">
