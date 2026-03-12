@@ -103,6 +103,19 @@
   );
 }
 
+/* ── Photo (replaces icon zone when image is provided) ── */
+.furniture-card__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.furniture-card:hover .furniture-card__photo {
+  transform: scale(1.06);
+}
+
 /* ── Icon svg ── */
 .furniture-card__icon {
   position: relative;
