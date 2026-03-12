@@ -5,6 +5,8 @@ import Navbar from "../../components/layout/Navbar/Navbar";
 import SettingsModal from "../../components/layout/SettingsModal/SettingsModal";
 import SubNav, { NAV_ITEMS } from "../../components/layout/SubNav/SubNav";
 import StyleSection, { STYLES } from "./StyleSection";
+import ExploreFurniturePage from "../ExploreFurniturePage/ExploreFurniturePage";
+import FurnitureCategoryPage from "../FurnitureCategoryPage/FurnitureCategoryPage";
 import "./DashboardPage.css";
 
 interface Props {
@@ -16,6 +18,7 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
   const [user, setUser] = useState(initialUser);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [activeNav, setActiveNav] = useState("explore");
+  const [activeFurnitureId, setActiveFurnitureId] = useState<string | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
 
   const handleLogout = () => {
@@ -36,7 +39,10 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
         onLogout={handleLogout}
         onOpenSettings={() => setSettingsOpen(true)}
       />
-      <SubNav active={activeNav} onSelect={setActiveNav} />
+      <SubNav
+        active={activeNav}
+        onSelect={(id) => { setActiveNav(id); setActiveFurnitureId(null); }}
+      />
 
       {activeNav === "explore" ? (
         <>
@@ -79,6 +85,15 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
             ))}
           </div>
         </>
+      ) : activeNav === "furniture" ? (
+        activeFurnitureId ? (
+          <FurnitureCategoryPage
+            categoryId={activeFurnitureId}
+            onBack={() => setActiveFurnitureId(null)}
+          />
+        ) : (
+          <ExploreFurniturePage onSelectCategory={setActiveFurnitureId} />
+        )
       ) : (
         <div className="dashboard-placeholder">
           <p className="dashboard-placeholder__label">

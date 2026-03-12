@@ -25,7 +25,7 @@ export const NAV_ITEMS = [
   },
   {
     id: "furniture",
-    label: "Explore Furniture",
+    label: "Explore Furnitures",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M3 9V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v3" />

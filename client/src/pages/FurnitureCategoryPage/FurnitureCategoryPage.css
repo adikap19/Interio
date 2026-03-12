@@ -1,0 +1,110 @@
+.furniture-cat-page {
+  min-height: calc(100vh - 116px);
+  margin-top: 116px;
+  background: #faf8f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.furniture-cat-page__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  text-align: center;
+  max-width: 480px;
+}
+
+.furniture-cat-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  font-family: 'Lato', system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #a08060;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+  transition: background 0.18s, color 0.18s;
+}
+
+.furniture-cat-page__back:hover {
+  background: #f0e8dc;
+  color: #3b2a1a;
+}
+
+.furniture-cat-page__back svg {
+  width: 14px;
+  height: 14px;
+}
+
+.furniture-cat-page__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--accent, #b08060) 14%, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.furniture-cat-page__icon svg {
+  width: 38px;
+  height: 38px;
+  color: var(--accent, #b08060);
+}
+
+.furniture-cat-page__eyebrow {
+  font-family: 'Lato', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c4956a;
+  margin: 0;
+}
+
+.furniture-cat-page__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.4rem, 6vw, 3.5rem);
+  font-weight: 600;
+  color: #2c1a0e;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.furniture-cat-page__sub {
+  font-family: 'Lato', system-ui, sans-serif;
+  font-size: 0.93rem;
+  color: #a08060;
+  margin: 0;
+  line-height: 1.65;
+}
+
+.furniture-cat-page__badge {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.6rem;
+  background: #5c3a1e;
+  color: #f5ede0;
+  border-radius: 100px;
+  font-family: 'Lato', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.furniture-cat-page__note {
+  font-family: 'Lato', system-ui, sans-serif;
+  font-size: 0.88rem;
+  color: #b09070;
+  margin: 0;
+}

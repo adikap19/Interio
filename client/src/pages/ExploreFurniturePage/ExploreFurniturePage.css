@@ -1,0 +1,190 @@
+/* ── Page ── */
+.furniture-page {
+  min-height: calc(100vh - 116px);
+  padding: 4rem 3rem 5rem;
+  background: #faf8f5;
+  margin-top: 116px;
+}
+
+/* ── Header ── */
+.furniture-page__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.furniture-page__eyebrow {
+  font-family: 'Lato', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c4956a;
+  margin: 0;
+}
+
+.furniture-page__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 600;
+  color: #2c1a0e;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.furniture-page__subtitle {
+  font-family: 'Lato', system-ui, sans-serif;
+  font-size: 0.97rem;
+  color: #a08060;
+  margin: 0;
+  max-width: 420px;
+  line-height: 1.65;
+}
+
+/* ── Grid ── */
+.furniture-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Card ── */
+.furniture-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.4rem 1.3rem;
+  background: #fff;
+  border: 1px solid #ede4d3;
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  transition:
+    transform 0.26s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.26s ease,
+    border-color 0.26s ease;
+  overflow: hidden;
+}
+
+/* Accent bar on left edge */
+.furniture-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent, #b08060);
+  border-radius: 14px 0 0 14px;
+  opacity: 0;
+  transition: opacity 0.26s ease;
+}
+
+.furniture-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(92, 58, 30, 0.13);
+  border-color: var(--accent, #b08060);
+}
+
+.furniture-card:hover::before {
+  opacity: 1;
+}
+
+/* ── Icon ── */
+.furniture-card__icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent, #b08060) 12%, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.26s ease;
+}
+
+.furniture-card:hover .furniture-card__icon {
+  background: color-mix(in srgb, var(--accent, #b08060) 22%, #fff);
+}
+
+.furniture-card__icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--accent, #b08060);
+}
+
+/* ── Body ── */
+.furniture-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.furniture-card__label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #2c1a0e;
+  margin: 0 0 0.2rem;
+  line-height: 1.2;
+}
+
+.furniture-card__desc {
+  font-family: 'Lato', system-ui, sans-serif;
+  font-size: 0.8rem;
+  color: #a08060;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Arrow ── */
+.furniture-card__arrow {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f5ede0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.26s ease, transform 0.26s ease;
+}
+
+.furniture-card__arrow svg {
+  width: 14px;
+  height: 14px;
+  color: #8a6a4a;
+  transition: color 0.26s ease;
+}
+
+.furniture-card:hover .furniture-card__arrow {
+  background: var(--accent, #b08060);
+  transform: translateX(2px);
+}
+
+.furniture-card:hover .furniture-card__arrow svg {
+  color: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .furniture-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .furniture-page__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .furniture-page {
+    padding: 2.5rem 1rem 3rem;
+  }
+}
