@@ -62,9 +62,9 @@ export const FURNITURE_CATEGORIES: FurnitureCategory[] = [
     id: "dining-tables",
     label: "Dining Tables",
     description: "Round, rectangular & extendable",
+    accent: "#c49060",
     image:
       "https://i.pinimg.com/1200x/d8/78/c5/d878c5d21bec438edc4a9d3a26351b30.jpg",
-    accent: "#c49060",
     icon: (
       <svg
         viewBox="0 0 48 48"
@@ -83,9 +83,9 @@ export const FURNITURE_CATEGORIES: FurnitureCategory[] = [
     id: "wardrobes",
     label: "Wardrobes",
     description: "Sliding, hinged & walk-in",
+    accent: "#7a5a3a",
     image:
       "https://i.pinimg.com/736x/d9/3e/cc/d93eccf31850d379510e74f2ac3b41f7.jpg",
-    accent: "#7a5a3a",
     icon: (
       <svg
         viewBox="0 0 48 48"
@@ -107,9 +107,9 @@ export const FURNITURE_CATEGORIES: FurnitureCategory[] = [
     id: "coffee-tables",
     label: "Coffee Tables",
     description: "Living room centrepieces",
+    accent: "#a07850",
     image:
       "https://i.pinimg.com/736x/82/66/48/826648c91404d27ff62a87cca7a271d3.jpg",
-    accent: "#a07850",
     icon: (
       <svg
         viewBox="0 0 48 48"
@@ -129,9 +129,9 @@ export const FURNITURE_CATEGORIES: FurnitureCategory[] = [
     id: "nightstands",
     label: "Nightstands",
     description: "Bedside tables & drawer units",
+    accent: "#c0886a",
     image:
       "https://i.pinimg.com/1200x/df/16/9b/df169bdf6c0e20388510171d689b9279.jpg",
-    accent: "#c0886a",
     icon: (
       <svg
         viewBox="0 0 48 48"
@@ -153,9 +153,9 @@ export const FURNITURE_CATEGORIES: FurnitureCategory[] = [
     id: "bookshelves",
     label: "Bookshelves",
     description: "Open shelves & display units",
+    accent: "#9a7458",
     image:
       "https://i.pinimg.com/1200x/da/2a/c8/da2ac8e77a4c493f7940be2d900fa16b.jpg",
-    accent: "#9a7458",
     icon: (
       <svg
         viewBox="0 0 48 48"
@@ -176,9 +176,9 @@ export const FURNITURE_CATEGORIES: FurnitureCategory[] = [
     id: "desks",
     label: "Desks",
     description: "Work desks & writing tables",
-    image:
-      "https://i.pinimg.com/736x/d1/04/af/d104af8cd22f30e4d1bb131064f543e6.jpg",
     accent: "#b07060",
+    image:
+      "https://i.pinimg.com/1200x/c7/a0/68/c7a06811851271c1b0f69ae1e1318c38.jpg",
     icon: (
       <svg
         viewBox="0 0 48 48"
@@ -300,7 +300,7 @@ export default function ExploreFurniturePage({ onSelectCategory }: Props) {
     <div className="furniture-page">
       <div className="furniture-page__header">
         <p className="furniture-page__eyebrow">Browse by category</p>
-        <h1 className="furniture-page__title">Explore Furnitures</h1>
+        <h1 className="furniture-page__title">Explore Furniture</h1>
         <p className="furniture-page__subtitle">
           Find the perfect pieces for every room in your home.
         </p>
