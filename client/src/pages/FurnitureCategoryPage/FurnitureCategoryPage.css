@@ -1,110 +1,81 @@
-.furniture-cat-page {
-  min-height: calc(100vh - 116px);
-  margin-top: 116px;
+.fcat-page {
+  flex: 1;
+  padding: 148px 40px 60px; /* 64px navbar + 52px subnav + 32px breathing room */
   background: #faf8f5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 2rem;
+  direction: rtl;
 }
 
-.furniture-cat-page__inner {
+.fcat-page__header {
+  margin-bottom: 32px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
-  text-align: center;
-  max-width: 480px;
 }
 
-.furniture-cat-page__back {
+.fcat-page__back {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  background: none;
-  border: none;
-  font-family: 'Lato', system-ui, sans-serif;
-  font-size: 0.82rem;
+  gap: 7px;
+  background: #f0e8dc;
+  border: 1.5px solid #d9cfc4;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: #a08060;
-  cursor: pointer;
-  padding: 0.4rem 0.8rem;
-  border-radius: 100px;
-  margin-bottom: 1rem;
-  transition: background 0.18s, color 0.18s;
+  text-transform: uppercase;
+  color: #5c3a1e;
+  padding: 7px 18px;
+  margin-bottom: 24px;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+  direction: ltr;
 }
 
-.furniture-cat-page__back:hover {
-  background: #f0e8dc;
-  color: #3b2a1a;
+.fcat-page__back:hover {
+  background: #5c3a1e;
+  color: #f5ede0;
+  border-color: #5c3a1e;
 }
 
-.furniture-cat-page__back svg {
+.fcat-page__back svg {
   width: 14px;
   height: 14px;
 }
 
-.furniture-cat-page__icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 20px;
-  background: color-mix(in srgb, var(--accent, #b08060) 14%, #fff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.5rem;
-}
-
-.furniture-cat-page__icon svg {
-  width: 38px;
-  height: 38px;
-  color: var(--accent, #b08060);
-}
-
-.furniture-cat-page__eyebrow {
-  font-family: 'Lato', system-ui, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #c4956a;
-  margin: 0;
-}
-
-.furniture-cat-page__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.4rem, 6vw, 3.5rem);
-  font-weight: 600;
-  color: #2c1a0e;
-  margin: 0;
-  line-height: 1.1;
-}
-
-.furniture-cat-page__sub {
-  font-family: 'Lato', system-ui, sans-serif;
-  font-size: 0.93rem;
-  color: #a08060;
-  margin: 0;
-  line-height: 1.65;
-}
-
-.furniture-cat-page__badge {
-  margin-top: 1.5rem;
-  padding: 0.5rem 1.6rem;
-  background: #5c3a1e;
-  color: #f5ede0;
-  border-radius: 100px;
-  font-family: 'Lato', system-ui, sans-serif;
-  font-size: 0.8rem;
+.fcat-page__title {
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: #2a2118;
+  margin: 0 0 6px;
 }
 
-.furniture-cat-page__note {
-  font-family: 'Lato', system-ui, sans-serif;
-  font-size: 0.88rem;
-  color: #b09070;
+.fcat-page__sub {
+  font-size: 14px;
+  color: #7a6858;
   margin: 0;
+}
+
+.fcat-page__loading {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.fcat-page__spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e0d8cf;
+  border-top-color: #9a7c5f;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.fcat-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 18px;
 }

@@ -10,3 +10,25 @@ export interface AuthResponse {
   token: string;
   user: User;
 }
+
+export interface FurnitureProduct {
+  id: string;
+  categoryId: string;
+  name: string;
+  price: number;
+  imageUrl: string;
+  storeUrl: string;
+  storeName: string;
+}
+
+export interface SavedProduct {
+  id: string;
+  productId: string;
+  categoryId: string;
+  name: string;
+  price: number;
+  imageUrl: string;
+  storeUrl: string;
+  storeName: string;
+  createdAt: string;
+}

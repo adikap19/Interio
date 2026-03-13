@@ -7,6 +7,7 @@ import SubNav, { NAV_ITEMS } from "../../components/layout/SubNav/SubNav";
 import StyleSection, { STYLES } from "./StyleSection";
 import ExploreFurniturePage from "../ExploreFurniturePage/ExploreFurniturePage";
 import FurnitureCategoryPage from "../FurnitureCategoryPage/FurnitureCategoryPage";
+import MoodBoardPage from "../MoodBoardPage/MoodBoardPage";
 import "./DashboardPage.css";
 
 interface Props {
@@ -19,6 +20,7 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [activeNav, setActiveNav] = useState("explore");
   const [activeFurnitureId, setActiveFurnitureId] = useState<string | null>(null);
+  const [moodboardRefresh, setMoodboardRefresh] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
 
   const handleLogout = () => {
@@ -91,10 +93,13 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
           <FurnitureCategoryPage
             categoryId={activeFurnitureId}
             onBack={() => setActiveFurnitureId(null)}
+            onSaveChange={() => setMoodboardRefresh((n) => n + 1)}
           />
         ) : (
           <ExploreFurniturePage onSelectCategory={setActiveFurnitureId} />
         )
+      ) : activeNav === "moodboard" ? (
+        <MoodBoardPage refreshKey={moodboardRefresh} />
       ) : (
         <div className="dashboard-placeholder">
           <p className="dashboard-placeholder__label">
