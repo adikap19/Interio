@@ -17,7 +17,7 @@
 }
 
 .furniture-page__eyebrow {
-  font-family: 'Lato', system-ui, sans-serif;
+
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -27,7 +27,7 @@
 }
 
 .furniture-page__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   font-weight: 600;
   color: #2c1a0e;
@@ -36,7 +36,7 @@
 }
 
 .furniture-page__subtitle {
-  font-family: 'Lato', system-ui, sans-serif;
+
   font-size: 0.97rem;
   color: #a08060;
   margin: 0;
@@ -148,7 +148,7 @@
 }
 
 .furniture-card__label {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 1.22rem;
   font-weight: 600;
   color: #2c1a0e;
@@ -162,7 +162,7 @@
 }
 
 .furniture-card__desc {
-  font-family: 'Lato', system-ui, sans-serif;
+
   font-size: 0.78rem;
   color: #b09070;
   margin: 0;

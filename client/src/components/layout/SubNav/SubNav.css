@@ -27,8 +27,8 @@
   border: none;
   background: none;
   border-radius: 100px;
-  font-family: 'Lato', system-ui, sans-serif;
-  font-size: 0.82rem;
+
+  font-size: 1rem;
   font-weight: 500;
   color: #a08060;
   letter-spacing: 0.04em;
@@ -66,6 +66,6 @@
 .subnav__label {
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.75rem;
+  font-size: 0.92rem;
   font-weight: 600;
 }

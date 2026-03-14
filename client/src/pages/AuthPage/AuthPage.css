@@ -33,8 +33,16 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.04) 0%, transparent 50%);
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 255, 255, 0.04) 0%,
+      transparent 50%
+    );
 }
 
 .auth-left__top {
@@ -43,7 +51,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
 }
 
 .auth-left__logo {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 2.2rem;
   font-weight: 700;
   color: #f5ede0;
@@ -69,7 +77,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
 }
 
 .auth-left__headline {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 2.6rem;
   font-weight: 600;
   color: #f5ede0;
@@ -95,9 +103,9 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
 }
 
 .auth-left__chip {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(245,237,224,0.85);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(245, 237, 224, 0.85);
   font-size: 0.78rem;
   padding: 0.35rem 0.9rem;
   border-radius: 100px;
@@ -108,7 +116,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
   position: relative;
   z-index: 1;
   font-size: 0.78rem;
-  color: rgba(245,237,224,0.35);
+  color: rgba(245, 237, 224, 0.35);
 }
 
 /* ── Right Panel ── */
@@ -139,7 +147,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
 }
 
 .auth-form-wrapper__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 1.9rem;
   font-weight: 600;
   color: #2c1a0e;
@@ -177,14 +185,17 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
   font-weight: 500;
   color: #2c1a0e;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
   margin-bottom: 1.5rem;
 }
 
 .google-btn:hover {
   background: #f5f0e8;
   border-color: #c4a882;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .google-btn__icon {
@@ -207,7 +218,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
 
 .auth-divider::before,
 .auth-divider::after {
-  content: '';
+  content: "";
   flex: 1;
   height: 1px;
   background: #e0d5c8;
@@ -233,7 +244,9 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
   font-weight: 600;
   cursor: pointer;
   letter-spacing: 0.3px;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
   margin-top: 0.5rem;
 }
 

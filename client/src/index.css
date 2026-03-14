@@ -8,6 +8,43 @@
   padding: 0;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
+*, *::before, *::after {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* ── Secondary / body text ── */
+p,
+input,
+textarea,
+select,
+.dashboard-hero__subtitle,
+.style-section__desc,
+.furniture-page__subtitle,
+.furniture-card__desc,
+.dashboard-placeholder__sub,
+.navbar__dropdown-name,
+.navbar__dropdown-email,
+.navbar__dropdown-btn,
+.auth-left__desc,
+.auth-left__tagline,
+.auth-left__chip,
+.auth-left__bottom,
+.auth-form-wrapper__subtitle,
+.auth-form-wrapper__subtitle a,
+.auth-forgot a,
+.auth-error,
+.moodboard-card__name,
+.moodboard-card__store,
+.moodboard-card__price,
+.moodboard-page__empty span,
+.moodboard-page__empty p,
+.moodboard-card__link,
+.fcat-page__sub,
+.settings-modal__body,
+.product-popover__name,
+.product-popover__price,
+.product-popover__store {
+  font-family: 'Lora', serif;
+  letter-spacing: 0.01em;
 }

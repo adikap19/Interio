@@ -41,8 +41,8 @@ export default function MoodBoardPage({ refreshKey }: Props) {
             <rect x="6" y="6" width="36" height="36" rx="4" />
             <path d="M6 18h36M18 18v24" />
           </svg>
-          <p>Your moodboard is empty.</p>
-          <span>Browse furniture categories and save products you love.</span>
+          <p>Your moodboard is empty</p>
+          <span>Browse furniture categories and save products you love</span>
         </div>
       </div>
     );

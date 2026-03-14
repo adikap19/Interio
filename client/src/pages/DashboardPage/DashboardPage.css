@@ -54,7 +54,7 @@
 }
 
 .dashboard-hero__eyebrow {
-  font-family: 'Lato', system-ui, sans-serif;
+
   font-size: 0.85rem;
   font-weight: 400;
   letter-spacing: 0.18em;
@@ -64,7 +64,7 @@
 }
 
 .dashboard-hero__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: clamp(3rem, 7vw, 5.5rem);
   font-weight: 600;
   line-height: 1.08;
@@ -78,7 +78,7 @@
 }
 
 .dashboard-hero__subtitle {
-  font-family: 'Lato', system-ui, sans-serif;
+
   font-size: 1.05rem;
   color: #7a6248;
   line-height: 1.7;
@@ -96,7 +96,7 @@
   color: #f5ede0;
   border: none;
   border-radius: 100px;
-  font-family: 'Lato', system-ui, sans-serif;
+
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -160,7 +160,7 @@
 }
 
 .style-section__index {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 4.5rem;
   font-weight: 300;
   color: rgba(92, 58, 30, 0.12);
@@ -170,7 +170,7 @@
 }
 
 .style-section__name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 600;
   color: #2c1a0e;
@@ -179,7 +179,7 @@
 }
 
 .style-section__desc {
-  font-family: 'Lato', system-ui, sans-serif;
+
   font-size: 0.97rem;
   color: #7a6248;
   line-height: 1.75;
@@ -251,7 +251,7 @@
 }
 
 .dashboard-placeholder__label {
-  font-family: 'Lato', system-ui, sans-serif;
+
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -261,7 +261,7 @@
 }
 
 .dashboard-placeholder__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 3rem;
   font-weight: 600;
   color: #2c1a0e;
@@ -269,7 +269,7 @@
 }
 
 .dashboard-placeholder__sub {
-  font-family: 'Lato', system-ui, sans-serif;
+
   font-size: 0.95rem;
   color: #a08060;
   margin: 0;
@@ -288,7 +288,7 @@
 }
 
 .dashboard-footer__brand {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 1.3rem;
   font-weight: 700;
   color: #3b2a1a;
@@ -296,7 +296,7 @@
 }
 
 .dashboard-footer__copy {
-  font-family: 'Lato', system-ui, sans-serif;
+
   font-size: 0.8rem;
   color: #a08060;
 }
