@@ -19,7 +19,7 @@ export default function ProductCard({ product, isSaved, onSave, onUnsave }: Prop
             className={`pin-card__save${isSaved ? " pin-card__save--saved" : ""}`}
             onClick={(e) => { e.stopPropagation(); isSaved ? onUnsave() : onSave(); }}
           >
-            {isSaved ? "Saved ✓" : "Save"}
+            {isSaved ? "Saved ✓" : "Add to Moodboard"}
           </button>
 
           <a
