@@ -4,25 +4,43 @@ import "./ProductCard.css";
 interface Props {
   product: FurnitureProduct;
   isSaved: boolean;
-  isOpen: boolean;
-  onClick: (product: FurnitureProduct, rect: DOMRect) => void;
+  onSave: () => void;
+  onUnsave: () => void;
 }
 
-export default function ProductCard({ product, isSaved, isOpen, onClick }: Props) {
+export default function ProductCard({ product, isSaved, onSave, onUnsave }: Props) {
   return (
-    <button
-      className={`product-card${isOpen ? " product-card--open" : ""}${isSaved ? " product-card--saved" : ""}`}
-      onClick={(e) => onClick(product, (e.currentTarget as HTMLButtonElement).getBoundingClientRect())}
-    >
-      <div className="product-card__img-wrap">
-        <img src={product.imageUrl} alt={product.name} className="product-card__img" />
-        {isSaved && <span className="product-card__saved-badge">שמור</span>}
+    <div className="pin-card">
+      <div className="pin-card__img-wrap">
+        <img src={product.imageUrl} alt={product.name} className="pin-card__img" />
+
+        <div className="pin-card__overlay">
+          <button
+            className={`pin-card__save${isSaved ? " pin-card__save--saved" : ""}`}
+            onClick={(e) => { e.stopPropagation(); isSaved ? onUnsave() : onSave(); }}
+          >
+            {isSaved ? "שמור ✓" : "שמירה"}
+          </button>
+
+          <a
+            href={product.storeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pin-card__visit"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M7 17L17 7" /><path d="M7 7h10v10" />
+            </svg>
+            ביקור באתר
+          </a>
+        </div>
       </div>
-      <div className="product-card__body">
-        <p className="product-card__name">{product.name}</p>
-        <p className="product-card__price">₪{product.price.toLocaleString()}</p>
-        <p className="product-card__store">{product.storeName}</p>
+
+      <div className="pin-card__info">
+        <p className="pin-card__name">{product.name}</p>
+        <p className="pin-card__price">₪{product.price.toLocaleString()}</p>
       </div>
-    </button>
+    </div>
   );
 }

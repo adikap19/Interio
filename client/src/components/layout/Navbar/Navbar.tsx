@@ -40,6 +40,8 @@ export default function Navbar({ user, onLogout, onOpenSettings, onUserUpdate }:
     const reader = new FileReader();
     reader.onload = async (ev) => {
       const avatarUrl = ev.target?.result as string;
+      // Update locally immediately so avatar shows right away
+      onUserUpdate({ ...user, avatarUrl });
       try {
         const { data } = await api.patch<User>("/auth/profile", { avatarUrl });
         onUserUpdate(data);
