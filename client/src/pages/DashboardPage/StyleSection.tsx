@@ -38,7 +38,7 @@ export const STYLES: StyleItem[] = [
     images: [
       "https://www.hogandesignandconstruction.com/hs-fs/hubfs/luis-j-corniel-bJGBQj5cf6w-unsplash%20(1).jpg?width=1920&height=1277&name=luis-j-corniel-bJGBQj5cf6w-unsplash%20(1).jpg",
       "https://miro.medium.com/0*ueJXGyCClvpnTcJH",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYAlwNmgO0ouAm8SH9Amx1LNmyqLLu-7I-ug&s",
+      "https://i.pinimg.com/1200x/00/66/42/00664213808ea131b8fbedce3c20b41a.jpg",
     ],
   },
   {

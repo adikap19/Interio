@@ -157,7 +157,7 @@ export default function AuthPage({ onAuth }: Props) {
           <h2 className="auth-left__headline">
             Design your
             <br />
-            <span>perfect space,</span>
+            perfect space,
             <br />
             your way.
           </h2>
@@ -175,7 +175,7 @@ export default function AuthPage({ onAuth }: Props) {
         </div>
 
         <div className="auth-left__bottom">
-          © 2025 INTERIO. All rights reserved.
+          © 2026 INTERIO. All rights reserved.
         </div>
       </div>
 
@@ -238,7 +238,10 @@ export default function AuthPage({ onAuth }: Props) {
                 type="text"
                 inputMode="email"
                 value={email}
-                onChange={(e) => { setEmail(e.target.value); setError(""); }}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setError("");
+                }}
                 fullWidth
                 size="small"
                 autoComplete="email"
@@ -256,7 +259,10 @@ export default function AuthPage({ onAuth }: Props) {
                 label="Password"
                 type={showPass ? "text" : "password"}
                 value={password}
-                onChange={(e) => { setPassword(e.target.value); setError(""); }}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setError("");
+                }}
                 fullWidth
                 size="small"
                 autoComplete="current-password"
