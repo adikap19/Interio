@@ -1,15 +1,56 @@
 import { useState, useEffect } from "react";
 import { SavedProduct } from "../../types";
 import { getSavedProducts, unsaveProduct } from "../../services/furniture";
+import { FURNITURE_CATEGORIES } from "../ExploreFurniturePage/ExploreFurniturePage";
 import "./MoodBoardPage.css";
 
 interface Props {
   refreshKey?: number;
 }
 
+function ProductGrid({ products, onRemove }: { products: SavedProduct[]; onRemove: (id: string) => void }) {
+  return (
+    <div className="moodboard-page__grid">
+      {products.map((product) => (
+        <div key={product.id} className="moodboard-card">
+          <div className="moodboard-card__img-wrap">
+            <img src={product.imageUrl} alt={product.name} className="moodboard-card__img" />
+            <div className="moodboard-card__overlay">
+              <button
+                className="moodboard-card__remove-btn"
+                onClick={() => onRemove(product.productId)}
+              >
+                Remove
+              </button>
+              <a
+                href={product.storeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="moodboard-card__visit"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M7 17L17 7" /><path d="M7 7h10v10" />
+                </svg>
+                Visit Store
+              </a>
+            </div>
+          </div>
+          <div className="moodboard-card__body">
+            <p className="moodboard-card__name">{product.name}</p>
+            <p className="moodboard-card__price">₪{product.price.toLocaleString()}</p>
+            <p className="moodboard-card__store">{product.storeName}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function MoodBoardPage({ refreshKey }: Props) {
   const [products, setProducts] = useState<SavedProduct[]>([]);
   const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   useEffect(() => {
     setLoading(true);
@@ -48,46 +89,61 @@ export default function MoodBoardPage({ refreshKey }: Props) {
     );
   }
 
+  // Categories that have at least one saved product
+  const savedCategories = FURNITURE_CATEGORIES.filter((cat) =>
+    products.some((p) => p.categoryId === cat.id)
+  );
+
+  const filteredProducts = activeCategory
+    ? products.filter((p) => p.categoryId === activeCategory)
+    : products;
+
+  const activeCat = FURNITURE_CATEGORIES.find((c) => c.id === activeCategory);
+
   return (
     <div className="moodboard-page">
       <div className="moodboard-page__header">
         <h1>Mood Board</h1>
         <span className="moodboard-page__count">{products.length} items</span>
       </div>
-      <div className="moodboard-page__grid">
-        {products.map((product) => (
-          <div key={product.id} className="moodboard-card">
-            <div className="moodboard-card__img-wrap">
-              <img src={product.imageUrl} alt={product.name} className="moodboard-card__img" />
-              <div className="moodboard-card__overlay">
-                <button
-                  className="moodboard-card__remove-btn"
-                  onClick={() => handleRemove(product.productId)}
-                >
-                  Remove
-                </button>
-                <a
-                  href={product.storeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="moodboard-card__visit"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M7 17L17 7" /><path d="M7 7h10v10" />
-                  </svg>
-                  Visit Store
-                </a>
+
+      {/* Category filter chips */}
+      <div className="moodboard-cats">
+        {savedCategories.map((cat) => {
+          const count = products.filter((p) => p.categoryId === cat.id).length;
+          const firstImg = products.find((p) => p.categoryId === cat.id)?.imageUrl;
+          const isActive = activeCategory === cat.id;
+          return (
+            <button
+              key={cat.id}
+              className={`moodboard-cat-card${isActive ? " moodboard-cat-card--active" : ""}`}
+              onClick={() => setActiveCategory(isActive ? null : cat.id)}
+            >
+              <div className="moodboard-cat-card__img-wrap">
+                {firstImg && <img src={firstImg} alt={cat.label} className="moodboard-cat-card__img" />}
               </div>
-            </div>
-            <div className="moodboard-card__body">
-              <p className="moodboard-card__name">{product.name}</p>
-              <p className="moodboard-card__price">₪{product.price.toLocaleString()}</p>
-              <p className="moodboard-card__store">{product.storeName}</p>
-            </div>
-          </div>
-        ))}
+              <p className="moodboard-cat-card__label">{cat.label}</p>
+              <p className="moodboard-cat-card__count">{count} items</p>
+            </button>
+          );
+        })}
       </div>
+
+      {/* Section title */}
+      <div className="moodboard-page__section-header">
+        {activeCategory ? (
+          <>
+            <h2>{activeCat?.label}</h2>
+            <button className="moodboard-page__clear" onClick={() => setActiveCategory(null)}>
+              Show all
+            </button>
+          </>
+        ) : (
+          <h2>All Saved</h2>
+        )}
+      </div>
+
+      <ProductGrid products={filteredProducts} onRemove={handleRemove} />
     </div>
   );
 }
