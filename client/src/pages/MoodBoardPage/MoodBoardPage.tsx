@@ -59,29 +59,31 @@ export default function MoodBoardPage({ refreshKey }: Props) {
           <div key={product.id} className="moodboard-card">
             <div className="moodboard-card__img-wrap">
               <img src={product.imageUrl} alt={product.name} className="moodboard-card__img" />
-              <button
-                className="moodboard-card__remove"
-                onClick={() => handleRemove(product.productId)}
-                aria-label="Remove"
-              >✕</button>
+              <div className="moodboard-card__overlay">
+                <button
+                  className="moodboard-card__remove-btn"
+                  onClick={() => handleRemove(product.productId)}
+                >
+                  Remove
+                </button>
+                <a
+                  href={product.storeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="moodboard-card__visit"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17L17 7" /><path d="M7 7h10v10" />
+                  </svg>
+                  Visit Store
+                </a>
+              </div>
             </div>
             <div className="moodboard-card__body">
               <p className="moodboard-card__name">{product.name}</p>
               <p className="moodboard-card__price">₪{product.price.toLocaleString()}</p>
               <p className="moodboard-card__store">{product.storeName}</p>
-              <a
-                href={product.storeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="moodboard-card__link"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  <polyline points="15 3 21 3 21 9" />
-                  <line x1="10" y1="14" x2="21" y2="3" />
-                </svg>
-                Visit Store
-              </a>
             </div>
           </div>
         ))}

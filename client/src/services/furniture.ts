@@ -8,7 +8,7 @@ export const getSavedProducts = () =>
   api.get<SavedProduct[]>('/furniture/saved').then((r) => r.data);
 
 export const saveProduct = (product: FurnitureProduct) =>
-  api.post<SavedProduct>('/furniture/save', product).then((r) => r.data);
+  api.post<SavedProduct>('/furniture/save', { ...product, productId: product.id }).then((r) => r.data);
 
 export const unsaveProduct = (productId: string) =>
   api.delete(`/furniture/save/${productId}`).then((r) => r.data);

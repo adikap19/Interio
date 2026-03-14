@@ -72,14 +72,15 @@
 
 .moodboard-page__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense;
+  gap: 14px;
+  align-items: start;
 }
 
 /* Card */
 .moodboard-card {
   background: #fff;
-  border: 1.5px solid #e2e2de;
   border-radius: 14px;
   overflow: hidden;
   display: flex;
@@ -95,15 +96,13 @@
 .moodboard-card__img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
   background: #f5f5f3;
   overflow: hidden;
 }
 
 .moodboard-card__img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
   transition: transform 0.3s;
 }
@@ -112,32 +111,71 @@
   transform: scale(1.05);
 }
 
-.moodboard-card__remove {
+.moodboard-card__overlay {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  width: 26px;
-  height: 26px;
-  background: rgba(255,255,255,0.9);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 12px;
-  color: #444444;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  inset: 0;
+  background: rgba(0,0,0,0.18);
   opacity: 0;
-  transition: opacity 0.18s, background 0.18s;
+  transition: opacity 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  pointer-events: none;
 }
 
-.moodboard-card:hover .moodboard-card__remove {
+.moodboard-card__img-wrap:hover .moodboard-card__overlay {
   opacity: 1;
+  pointer-events: auto;
 }
 
-.moodboard-card__remove:hover {
+.moodboard-card__remove-btn {
+  align-self: flex-start;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.15s, transform 0.12s;
+  white-space: nowrap;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.moodboard-card__remove-btn:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+.moodboard-card__visit {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.92);
+  color: #111111;
+  text-decoration: none;
+  border-radius: 24px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: background 0.15s, transform 0.12s;
+  white-space: nowrap;
+}
+
+.moodboard-card__visit:hover {
   background: #fff;
-  color: #c0392b;
+  transform: scale(1.05);
+}
+
+.moodboard-card__visit svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
 }
 
 .moodboard-card__body {
@@ -146,6 +184,7 @@
   flex-direction: column;
   gap: 3px;
   flex: 1;
+  direction: rtl;
 }
 
 .moodboard-card__name {
@@ -170,25 +209,5 @@
 .moodboard-card__store {
   font-size: 11px;
   color: #888888;
-  margin: 0 0 6px;
-}
-
-.moodboard-card__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #666666;
-  text-decoration: none;
-  direction: ltr;
-  margin-top: auto;
-  transition: color 0.15s;
-}
-
-.moodboard-card__link:hover { color: #111111; }
-
-.moodboard-card__link svg {
-  width: 12px;
-  height: 12px;
+  margin: 0;
 }
