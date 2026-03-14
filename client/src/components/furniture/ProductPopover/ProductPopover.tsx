@@ -52,7 +52,7 @@ export default function ProductPopover({ product, anchorRect, isSaved, onSave, o
       className="product-popover"
       style={{ top: pos.top, left: pos.left }}
     >
-      <button className="product-popover__close" onClick={onClose} aria-label="סגור">✕</button>
+      <button className="product-popover__close" onClick={onClose} aria-label="Close">✕</button>
 
       <p className="product-popover__name">{product.name}</p>
       <p className="product-popover__price">₪{product.price.toLocaleString()}</p>

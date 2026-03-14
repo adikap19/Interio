@@ -59,7 +59,7 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
               <h1 className="dashboard-hero__title">
                 Explore Different
                 <br />
-                <em>Design Styles</em>
+                Design Styles
               </h1>
               <p className="dashboard-hero__subtitle">
                 Curate your perfect interior. Discover six timeless aesthetics,

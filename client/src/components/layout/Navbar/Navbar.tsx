@@ -37,10 +37,17 @@ export default function Navbar({ user, onLogout, onOpenSettings, onUserUpdate }:
   const handleAvatarUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    const reader = new FileReader();
-    reader.onload = async (ev) => {
-      const avatarUrl = ev.target?.result as string;
-      // Update locally immediately so avatar shows right away
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+    img.onload = async () => {
+      URL.revokeObjectURL(objectUrl);
+      const canvas = document.createElement("canvas");
+      const MAX = 256;
+      const scale = Math.min(MAX / img.width, MAX / img.height, 1);
+      canvas.width = img.width * scale;
+      canvas.height = img.height * scale;
+      canvas.getContext("2d")!.drawImage(img, 0, 0, canvas.width, canvas.height);
+      const avatarUrl = canvas.toDataURL("image/jpeg", 0.85);
       onUserUpdate({ ...user, avatarUrl });
       try {
         const { data } = await api.patch<User>("/auth/profile", { avatarUrl });
@@ -49,7 +56,7 @@ export default function Navbar({ user, onLogout, onOpenSettings, onUserUpdate }:
         // silently ignore upload errors
       }
     };
-    reader.readAsDataURL(file);
+    img.src = objectUrl;
     setOpen(false);
   };
 

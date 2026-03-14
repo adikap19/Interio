@@ -19,7 +19,7 @@ export default function ProductCard({ product, isSaved, onSave, onUnsave }: Prop
             className={`pin-card__save${isSaved ? " pin-card__save--saved" : ""}`}
             onClick={(e) => { e.stopPropagation(); isSaved ? onUnsave() : onSave(); }}
           >
-            {isSaved ? "שמור ✓" : "שמירה"}
+            {isSaved ? "Saved ✓" : "Save"}
           </button>
 
           <a
@@ -32,7 +32,7 @@ export default function ProductCard({ product, isSaved, onSave, onUnsave }: Prop
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 17L17 7" /><path d="M7 7h10v10" />
             </svg>
-            ביקור באתר
+            Visit Store
           </a>
         </div>
       </div>

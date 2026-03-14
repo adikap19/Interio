@@ -62,7 +62,7 @@ export default function MoodBoardPage({ refreshKey }: Props) {
               <button
                 className="moodboard-card__remove"
                 onClick={() => handleRemove(product.productId)}
-                aria-label="הסר"
+                aria-label="Remove"
               >✕</button>
             </div>
             <div className="moodboard-card__body">

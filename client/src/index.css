@@ -9,7 +9,7 @@
 }
 
 *, *::before, *::after {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Urbanist', sans-serif;
   letter-spacing: 0.04em;
 }
 
@@ -31,6 +31,7 @@ select,
 .auth-left__chip,
 .auth-left__bottom,
 .auth-form-wrapper__subtitle,
+.auth-form-wrapper__subtitle span,
 .auth-form-wrapper__subtitle a,
 .auth-forgot a,
 .auth-error,

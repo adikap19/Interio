@@ -2,7 +2,7 @@
 .furniture-page {
   min-height: calc(100vh - 116px);
   padding: 4rem 3rem 5rem;
-  background: #faf8f5;
+  background: #fafaf8;
   margin-top: 116px;
 }
 
@@ -17,28 +17,25 @@
 }
 
 .furniture-page__eyebrow {
-
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #c4956a;
+  color: #c4a882;
   margin: 0;
 }
 
 .furniture-page__title {
-
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   font-weight: 600;
-  color: #2c1a0e;
+  color: #111111;
   margin: 0;
   line-height: 1.1;
 }
 
 .furniture-page__subtitle {
-
   font-size: 0.97rem;
-  color: #a08060;
+  color: #888888;
   margin: 0;
   max-width: 420px;
   line-height: 1.65;
@@ -59,7 +56,7 @@
   display: flex;
   flex-direction: column;
   background: #fff;
-  border: 1px solid #ede4d3;
+  border: 1px solid #e2e2de;
   border-radius: 18px;
   cursor: pointer;
   text-align: left;
@@ -74,9 +71,9 @@
 .furniture-card:hover {
   transform: translateY(-7px);
   box-shadow:
-    0 20px 48px rgba(92, 58, 30, 0.14),
-    0 4px 12px rgba(92, 58, 30, 0.07);
-  border-color: color-mix(in srgb, var(--accent, #b08060) 50%, transparent);
+    0 20px 48px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: color-mix(in srgb, var(--accent, #c4a882) 50%, transparent);
 }
 
 /* ── Icon zone (top) ── */
@@ -88,8 +85,8 @@
   height: 130px;
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--accent, #b08060) 14%, #faf8f5) 0%,
-    #faf8f5 100%
+    color-mix(in srgb, var(--accent, #c4a882) 10%, #fafaf8) 0%,
+    #fafaf8 100%
   );
   overflow: hidden;
   transition: background 0.35s ease;
@@ -98,8 +95,8 @@
 .furniture-card:hover .furniture-card__icon-zone {
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--accent, #b08060) 26%, #faf8f5) 0%,
-    color-mix(in srgb, var(--accent, #b08060) 6%, #faf8f5) 100%
+    color-mix(in srgb, var(--accent, #c4a882) 20%, #fafaf8) 0%,
+    color-mix(in srgb, var(--accent, #c4a882) 5%, #fafaf8) 100%
   );
 }
 
@@ -135,7 +132,7 @@
 .furniture-card__icon svg {
   width: 38px;
   height: 38px;
-  color: var(--accent, #b08060);
+  color: var(--accent, #c4a882);
 }
 
 /* ── Body (bottom) ── */
@@ -148,23 +145,21 @@
 }
 
 .furniture-card__label {
-
   font-size: 1.22rem;
   font-weight: 600;
-  color: #2c1a0e;
+  color: #111111;
   margin: 0;
   line-height: 1.2;
   transition: color 0.2s ease;
 }
 
 .furniture-card:hover .furniture-card__label {
-  color: var(--accent, #b08060);
+  color: var(--accent, #c4a882);
 }
 
 .furniture-card__desc {
-
   font-size: 0.78rem;
-  color: #b09070;
+  color: #888888;
   margin: 0;
   line-height: 1.5;
 }
@@ -177,7 +172,7 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--accent, #b08060);
+  background: var(--accent, #c4a882);
   display: flex;
   align-items: center;
   justify-content: center;

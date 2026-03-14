@@ -3,9 +3,9 @@
   z-index: 9999;
   width: 240px;
   background: #fff;
-  border: 1.5px solid #e0d8cf;
+  border: 1.5px solid #e2e2de;
   border-radius: 14px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -27,19 +27,19 @@
   border: none;
   cursor: pointer;
   font-size: 13px;
-  color: #9a8878;
+  color: #888888;
   line-height: 1;
   padding: 2px 4px;
   border-radius: 4px;
   transition: color 0.15s;
 }
 
-.product-popover__close:hover { color: #2a2118; }
+.product-popover__close:hover { color: #111111; }
 
 .product-popover__name {
   font-size: 13px;
   font-weight: 600;
-  color: #2a2118;
+  color: #111111;
   margin: 0;
   line-height: 1.4;
 }
@@ -47,13 +47,13 @@
 .product-popover__price {
   font-size: 15px;
   font-weight: 700;
-  color: #6b4f35;
+  color: #c4a882;
   margin: 0;
 }
 
 .product-popover__store {
   font-size: 11px;
-  color: #9a8878;
+  color: #888888;
   margin: 0 0 4px;
 }
 
@@ -86,28 +86,28 @@
 }
 
 .product-popover__btn--store {
-  background: #f5f2ee;
-  color: #2a2118;
+  background: #f5f5f3;
+  color: #111111;
 }
 
 .product-popover__btn--store:hover {
-  background: #ede7de;
+  background: #efefec;
 }
 
 .product-popover__btn--save {
-  background: #2a2118;
+  background: #1a1a1a;
   color: #fff;
 }
 
 .product-popover__btn--save:hover {
-  background: #3d3020;
+  background: #333333;
 }
 
 .product-popover__btn--unsave {
-  background: #9a7c5f;
+  background: #c4a882;
   color: #fff;
 }
 
 .product-popover__btn--unsave:hover {
-  background: #7a5e45;
+  background: #b09070;
 }

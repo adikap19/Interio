@@ -107,7 +107,6 @@ export default function AuthPage({ onAuth }: Props) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setError("");
     setLoading(true);
     try {
       const res =
@@ -119,6 +118,7 @@ export default function AuthPage({ onAuth }: Props) {
       const msg = (err as { response?: { data?: { error?: string } } }).response
         ?.data?.error;
       setError(msg || "Something went wrong. Please try again.");
+      setPassword("");
     } finally {
       setLoading(false);
     }
@@ -210,9 +210,7 @@ export default function AuthPage({ onAuth }: Props) {
             />
           )}
 
-          {error && <div className="auth-error">{error}</div>}
-
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} autoComplete="off" noValidate>
             <div className="auth-fields">
               {mode === "register" && (
                 <TextField
@@ -237,12 +235,13 @@ export default function AuthPage({ onAuth }: Props) {
 
               <TextField
                 label="Email"
-                type="email"
+                type="text"
+                inputMode="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
+                onChange={(e) => { setEmail(e.target.value); setError(""); }}
                 fullWidth
                 size="small"
+                autoComplete="email"
                 sx={MUI_SX}
                 InputProps={{
                   startAdornment: (
@@ -257,10 +256,10 @@ export default function AuthPage({ onAuth }: Props) {
                 label="Password"
                 type={showPass ? "text" : "password"}
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
+                onChange={(e) => { setPassword(e.target.value); setError(""); }}
                 fullWidth
                 size="small"
+                autoComplete="current-password"
                 sx={MUI_SX}
                 InputProps={{
                   startAdornment: (
@@ -294,6 +293,8 @@ export default function AuthPage({ onAuth }: Props) {
                 <a>Forgot password?</a>
               </div>
             )}
+
+            {error && <div className="auth-error">{error}</div>}
 
             <button
               type="submit"

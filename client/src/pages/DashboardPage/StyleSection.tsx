@@ -47,9 +47,9 @@ export const STYLES: StyleItem[] = [
     description:
       "Exposed brick, raw steel beams, weathered leather, and Edison bulbs celebrate the beauty of unfinished materials. Industrial style finds romance in the functional — urban, bold, and unapologetically honest about how things are made.",
     images: [
-      "https://images.unsplash.com/photo-1564540574859-0dfb63985953?w=600&q=80",
-      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
+      "https://i.pinimg.com/1200x/1f/66/a6/1f66a6a17d85ac71d899de7711aa7d7a.jpg",
+      "https://i.pinimg.com/736x/56/14/c7/5614c7224c190106e55e6d80d1dbff49.jpg",
+      "https://i.pinimg.com/1200x/36/3e/6a/363e6a5d56e697ec10d2ed85f1f20f6c.jpg",
     ],
   },
   {

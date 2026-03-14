@@ -8,7 +8,7 @@
   width: 100%;
   border-radius: 18px;
   overflow: hidden;
-  background: #f0ede8;
+  background: #efefec;
 }
 
 .pin-card__img {
@@ -45,7 +45,7 @@
 /* ── Save button (top-left) ── */
 .pin-card__save {
   align-self: flex-start;
-  background: #e60023;
+  background: #1a1a1a;
   color: #fff;
   border: none;
   border-radius: 24px;
@@ -59,16 +59,16 @@
 }
 
 .pin-card__save:hover {
-  background: #c0001e;
+  background: #333333;
   transform: scale(1.05);
 }
 
 .pin-card__save--saved {
-  background: #333;
+  background: #c4a882;
 }
 
 .pin-card__save--saved:hover {
-  background: #111;
+  background: #b09070;
 }
 
 /* ── Visit store button (bottom-right) ── */
@@ -78,7 +78,7 @@
   align-items: center;
   gap: 5px;
   background: rgba(255, 255, 255, 0.92);
-  color: #111;
+  color: #111111;
   text-decoration: none;
   border-radius: 24px;
   padding: 7px 14px;
@@ -110,7 +110,7 @@
 .pin-card__name {
   font-size: 13px;
   font-weight: 500;
-  color: #2a2118;
+  color: #111111;
   margin: 0 0 2px;
   line-height: 1.35;
   display: -webkit-box;
@@ -122,6 +122,6 @@
 .pin-card__price {
   font-size: 13px;
   font-weight: 700;
-  color: #6b4f35;
+  color: #c4a882;
   margin: 0;
 }
