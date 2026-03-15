@@ -11,38 +11,40 @@ interface Props {
 function ProductGrid({ products, onRemove }: { products: SavedProduct[]; onRemove: (id: string) => void }) {
   return (
     <div className="moodboard-page__grid">
-      {products.map((product) => (
-        <div key={product.id} className="moodboard-card">
-          <div className="moodboard-card__img-wrap">
-            <img src={product.imageUrl} alt={product.name} className="moodboard-card__img" />
-            <div className="moodboard-card__overlay">
-              <button
-                className="moodboard-card__remove-btn"
-                onClick={() => onRemove(product.productId)}
-              >
-                Remove
-              </button>
-              <a
-                href={product.storeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="moodboard-card__visit"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M7 17L17 7" /><path d="M7 7h10v10" />
-                </svg>
-                Visit Store
-              </a>
+      {products.map((product) => {
+        return (
+          <div key={product.id} className="moodboard-card">
+            <div className="moodboard-card__img-wrap">
+              <img src={product.imageUrl} alt={product.name} className="moodboard-card__img" />
+              <div className="moodboard-card__overlay">
+                <button
+                  className="moodboard-card__remove-btn"
+                  onClick={() => onRemove(product.productId)}
+                >
+                  Remove
+                </button>
+                <a
+                  href={product.storeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="moodboard-card__visit"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17L17 7" /><path d="M7 7h10v10" />
+                  </svg>
+                  Visit Store
+                </a>
+              </div>
+            </div>
+            <div className="moodboard-card__body">
+              <p className="moodboard-card__name">{product.name}</p>
+              <p className="moodboard-card__price">₪{product.price.toLocaleString()}</p>
+              <p className="moodboard-card__store">{product.storeName}</p>
             </div>
           </div>
-          <div className="moodboard-card__body">
-            <p className="moodboard-card__name">{product.name}</p>
-            <p className="moodboard-card__price">₪{product.price.toLocaleString()}</p>
-            <p className="moodboard-card__store">{product.storeName}</p>
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

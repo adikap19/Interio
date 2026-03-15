@@ -40,6 +40,7 @@ export default function ProductCard({ product, isSaved, onSave, onUnsave }: Prop
       <div className="pin-card__info">
         <p className="pin-card__name">{product.name}</p>
         <p className="pin-card__price">₪{product.price.toLocaleString()}</p>
+        <p className="pin-card__store">{product.storeName}</p>
       </div>
     </div>
   );

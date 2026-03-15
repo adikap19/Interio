@@ -1,25 +1,36 @@
 .pin-card {
   cursor: pointer;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e2de;
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+
+.pin-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  transform: translateY(-3px);
 }
 
 /* ── Image wrap ── */
 .pin-card__img-wrap {
   position: relative;
   width: 100%;
-  border-radius: 18px;
   overflow: hidden;
-  background: #efefec;
+  background: #f5f5f3;
 }
 
 .pin-card__img {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.pin-card__img-wrap:hover .pin-card__img {
-  transform: scale(1.04);
+.pin-card:hover .pin-card__img {
+  transform: scale(1.05);
 }
 
 /* ── Hover overlay ── */
@@ -29,7 +40,6 @@
   background: rgba(0, 0, 0, 0.18);
   opacity: 0;
   transition: opacity 0.2s;
-  border-radius: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,12 +60,13 @@
   border: none;
   border-radius: 24px;
   padding: 8px 16px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   transition: background 0.15s, transform 0.12s;
   white-space: nowrap;
+  font-family: 'Urbanist', sans-serif;
 }
 
 .pin-card__save:hover {
@@ -87,7 +98,6 @@
   letter-spacing: 0.03em;
   transition: background 0.15s, transform 0.12s;
   white-space: nowrap;
-  direction: rtl;
 }
 
 .pin-card__visit:hover {
@@ -103,15 +113,18 @@
 
 /* ── Text below image ── */
 .pin-card__info {
-  padding: 8px 4px 2px;
+  padding: 10px 12px 14px;
   direction: rtl;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .pin-card__name {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   color: #111111;
-  margin: 0 0 2px;
+  margin: 0;
   line-height: 1.35;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -120,8 +133,14 @@
 }
 
 .pin-card__price {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: #c4a882;
+  margin: 0;
+}
+
+.pin-card__store {
+  font-size: 11px;
+  color: #888888;
   margin: 0;
 }
