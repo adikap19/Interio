@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { User } from "../../types";
 import { logout } from "../../services/auth";
 import Navbar from "../../components/layout/Navbar/Navbar";
@@ -22,6 +22,21 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
   const [activeFurnitureId, setActiveFurnitureId] = useState<string | null>(null);
   const [moodboardRefresh, setMoodboardRefresh] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
+
+  // Push a history entry when entering FurnitureCategoryPage so browser back works
+  useEffect(() => {
+    if (activeFurnitureId) {
+      window.history.pushState({ furnitureId: activeFurnitureId }, "");
+    }
+  }, [activeFurnitureId]);
+
+  useEffect(() => {
+    const handlePop = () => {
+      setActiveFurnitureId(null);
+    };
+    window.addEventListener("popstate", handlePop);
+    return () => window.removeEventListener("popstate", handlePop);
+  }, []);
 
   const handleLogout = () => {
     logout();
