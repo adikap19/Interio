@@ -14,7 +14,7 @@ export const STYLES: StyleItem[] = [
     description:
       "Born from long winters and a deep respect for craftsmanship, Scandinavian design strips away the unnecessary to reveal pure, quiet beauty. Natural wood, muted whites, and honest materials come together in spaces that feel both functional and deeply restful.",
     images: [
-      "https://media.designcafe.com/wp-content/uploads/2020/11/18133838/scandinavian-interior-design-ideas.jpg",
+      "https://i.pinimg.com/736x/1b/27/6a/1b276af61272192b341de7aae2019662.jpg",
       "https://www.thespruce.com/thmb/0Af7qsguKz8O01cILcE_cv0h_fY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EmilyHendersonMoutainHouseLivingRoomHiRes1-487ff9fa0d1e4bf0b6c4d0e01da1baec.jpg",
       "https://www.nordicessentials.uk/cdn/shop/articles/1._Scandinavian_design_minimalist_design_interior_design_home_decor_furniture_design_Nordic_design_hygge_sustainable_design_eco-friendly_design_Danish_design_9d6c1db4-beac-47f0-9274-d.jpg?v=1757417054&width=1000",
     ],
