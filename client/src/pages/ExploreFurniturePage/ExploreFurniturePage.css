@@ -73,7 +73,7 @@
   box-shadow:
     0 20px 48px rgba(0, 0, 0, 0.12),
     0 4px 12px rgba(0, 0, 0, 0.06);
-  border-color: color-mix(in srgb, var(--accent, #c4a882) 50%, transparent);
+  border-color: color-mix(in srgb, var(--accent, #c4a882) 70%, #888);
 }
 
 /* ── Icon zone (top) ── */
@@ -162,6 +162,30 @@
   color: #888888;
   margin: 0;
   line-height: 1.5;
+}
+
+/* ── Room tag ── */
+.furniture-card__room {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #666666;
+  background: #f0f0ed;
+  border-radius: 100px;
+  padding: 2px 9px;
+  margin-bottom: 4px;
+  width: fit-content;
+  letter-spacing: 0;
+}
+
+/* ── Browse link ── */
+.furniture-card__browse {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #444444;
+  letter-spacing: 0.01em;
 }
 
 /* ── Arrow (bottom-right) ── */
