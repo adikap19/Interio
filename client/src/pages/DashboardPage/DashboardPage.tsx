@@ -68,9 +68,6 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
           <section className="dashboard-hero" ref={heroRef}>
             <div className="dashboard-hero__bg" />
             <div className="dashboard-hero__content">
-              <p className="dashboard-hero__eyebrow">
-                Welcome, {user.name.split(" ")[0]}
-              </p>
               <h1 className="dashboard-hero__title">
                 Explore Different
                 <br />
