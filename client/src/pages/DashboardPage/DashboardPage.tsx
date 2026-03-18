@@ -4,7 +4,7 @@ import { logout } from "../../services/auth";
 import Navbar from "../../components/layout/Navbar/Navbar";
 import SettingsModal from "../../components/layout/SettingsModal/SettingsModal";
 import SubNav, { NAV_ITEMS } from "../../components/layout/SubNav/SubNav";
-import StyleSection, { STYLES } from "./StyleSection";
+import StyleSection, { STYLES } from "../../components/styleSection/StyleSection";
 import ExploreFurniturePage from "../ExploreFurniturePage/ExploreFurniturePage";
 import FurnitureCategoryPage from "../FurnitureCategoryPage/FurnitureCategoryPage";
 import MoodBoardPage from "../MoodBoardPage/MoodBoardPage";
