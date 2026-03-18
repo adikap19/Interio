@@ -8,6 +8,7 @@ import StyleSection, { STYLES } from "./StyleSection";
 import ExploreFurniturePage from "../ExploreFurniturePage/ExploreFurniturePage";
 import FurnitureCategoryPage from "../FurnitureCategoryPage/FurnitureCategoryPage";
 import MoodBoardPage from "../MoodBoardPage/MoodBoardPage";
+import StyleYourSpacePage from "../StyleYourSpacePage/StyleYourSpacePage";
 import "./DashboardPage.css";
 
 interface Props {
@@ -110,6 +111,8 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
         )
       ) : activeNav === "moodboard" ? (
         <MoodBoardPage refreshKey={moodboardRefresh} />
+      ) : activeNav === "style" ? (
+        <StyleYourSpacePage />
       ) : (
         <div className="dashboard-placeholder">
           <p className="dashboard-placeholder__label">
