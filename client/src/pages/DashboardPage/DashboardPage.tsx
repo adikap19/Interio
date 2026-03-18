@@ -74,9 +74,7 @@ export default function DashboardPage({ user: initialUser, onLogout }: Props) {
                 Design Styles
               </h1>
               <p className="dashboard-hero__subtitle">
-                Curate your perfect interior. Discover six timeless aesthetics,
-                <br />
-                save what inspires you, and build moodboards that feel like home.
+                Curate your perfect interior&nbsp;&bull;&nbsp;Discover six timeless aesthetics&nbsp;&bull;&nbsp;Save what inspires you&nbsp;&bull;&nbsp;Build moodboards that feel like home
               </p>
               <button className="dashboard-hero__btn" onClick={handleScroll}>
                 Start Exploring

@@ -53,6 +53,8 @@ export default function MoodBoardPage({ refreshKey }: Props) {
   const [products, setProducts] = useState<SavedProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [toastVisible, setToastVisible] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -96,9 +98,17 @@ export default function MoodBoardPage({ refreshKey }: Props) {
     products.some((p) => p.categoryId === cat.id)
   );
 
-  const filteredProducts = activeCategory
-    ? products.filter((p) => p.categoryId === activeCategory)
-    : products;
+  const handleShare = () => {
+    const boardId = products[0]?.id ?? "board";
+    const link = `${window.location.origin}/board/${boardId}`;
+    navigator.clipboard.writeText(link);
+    setToastVisible(true);
+    setTimeout(() => setToastVisible(false), 2000);
+  };
+
+  const filteredProducts = products
+    .filter((p) => !activeCategory || p.categoryId === activeCategory)
+    .filter((p) => !searchQuery || p.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   const activeCat = FURNITURE_CATEGORIES.find((c) => c.id === activeCategory);
 
@@ -107,6 +117,29 @@ export default function MoodBoardPage({ refreshKey }: Props) {
       <div className="moodboard-page__header">
         <h1>Mood Board</h1>
         <span className="moodboard-page__count">{products.length} items</span>
+        <button className="moodboard-page__share-btn" onClick={handleShare}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+          Share Board
+        </button>
+      </div>
+
+      <div className="moodboard-page__search-wrap">
+        <svg className="moodboard-page__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input
+          className="moodboard-page__search"
+          type="text"
+          placeholder="Search saved items..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        {searchQuery && (
+          <button className="moodboard-page__search-clear" onClick={() => setSearchQuery("")}>✕</button>
+        )}
       </div>
 
       {/* Category filter chips */}
@@ -146,6 +179,10 @@ export default function MoodBoardPage({ refreshKey }: Props) {
       </div>
 
       <ProductGrid products={filteredProducts} onRemove={handleRemove} />
+
+      {toastVisible && (
+        <div className="moodboard-toast">Link copied!</div>
+      )}
     </div>
   );
 }

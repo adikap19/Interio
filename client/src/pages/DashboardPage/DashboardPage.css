@@ -22,9 +22,10 @@
 .dashboard-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://d1wci53n4f20tv.cloudfront.net/banners/_1920xAUTO_crop_center-center_none/IIDA-Chicago-2017-26-copy.jpg');
+  background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80');
   background-size: cover;
   background-position: center;
+  background-color: #2a2a2a;
   z-index: 0;
 }
 
@@ -34,9 +35,9 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0.55) 40%,
-    rgba(0, 0, 0, 0.15) 100%
+    rgba(0, 0, 0, 0.60) 0%,
+    rgba(0, 0, 0, 0.30) 40%,
+    rgba(0, 0, 0, 0.05) 100%
   );
 }
 
@@ -62,20 +63,20 @@
   font-size: clamp(2.8rem, 6vw, 5.5rem);
   font-weight: 800;
   line-height: 1.0;
-  color: #ffffff;
+  color: #f5f0e8;
   margin: 0;
   letter-spacing: -0.02em;
 }
 
 .dashboard-hero__title em {
   font-style: normal;
-  color: #ffffff;
+  color: #f5f0e8;
 }
 
 .dashboard-hero__subtitle {
   font-size: 1rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(235, 230, 220, 0.90);
   line-height: 1.65;
   max-width: 440px;
   margin: 0;
@@ -87,9 +88,9 @@
   gap: 0.5rem;
   margin-top: 0.25rem;
   padding: 0.8rem 1.8rem;
-  background: #ffffff;
-  color: #111111;
-  border: none;
+  background: rgba(30, 25, 20, 0.55);
+  color: #f5f0e8;
+  border: 1px solid rgba(245, 240, 232, 0.45);
   border-radius: 100px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -99,8 +100,9 @@
 }
 
 .dashboard-hero__btn:hover {
-  background: #f0f0ee;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background: rgba(30, 25, 20, 0.75);
+  border-color: rgba(245, 240, 232, 0.65);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
 
