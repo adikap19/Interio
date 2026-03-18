@@ -3,7 +3,9 @@
   padding: 4rem 3rem 5rem;
   margin-top: 116px;
   min-height: 100vh;
-  background: #fafaf8;
+  background:
+    linear-gradient(rgba(250,250,248,0.55), rgba(250,250,248,0.65)),
+    url("https://i.pinimg.com/1200x/1a/a6/51/1aa6513a118d80e96efb5b5aa660b2dc.jpg") center/cover no-repeat fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,9 +27,11 @@
 
 .sys-header__sub {
   font-size: 15px;
-  color: #888888;
+  color: #333333;
+  font-weight: 500;
   margin: 0 0 28px;
   font-family: 'Lora', serif;
+  text-shadow: 0 1px 8px rgba(255,255,255,0.85);
 }
 
 .sys-steps {
