@@ -1,0 +1,31 @@
+.page-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-header__eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c4a882;
+  margin: 0 0 0.6rem;
+}
+
+.page-header__title {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 600;
+  color: #111111;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.page-header__subtitle {
+  font-size: 0.97rem;
+  color: #666666;
+  margin: 0.75rem 0 0;
+  max-width: 500px;
+}

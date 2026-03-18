@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { FURNITURE_CATEGORIES } from "../ExploreFurniturePage/ExploreFurniturePage";
 import { FurnitureProduct } from "../../types";
-import { getProducts, getSavedProducts, saveProduct, unsaveProduct } from "../../services/furniture";
+import { getProducts } from "../../services/furniture";
+import { useSaveProduct } from "../../hooks/useSaveProduct";
 import ProductCard from "../../components/furniture/ProductCard/ProductCard";
+import LoadingSpinner from "../../components/ui/LoadingSpinner/LoadingSpinner";
 import "./FurnitureCategoryPage.css";
 
 interface Props {
@@ -15,36 +17,23 @@ export default function FurnitureCategoryPage({ categoryId, onBack, onSaveChange
   const category = FURNITURE_CATEGORIES.find((c) => c.id === categoryId);
 
   const [products, setProducts] = useState<FurnitureProduct[]>([]);
-  const [savedIds, setSavedIds] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
+  const { savedIds, handleSave, handleUnsave } = useSaveProduct();
 
   useEffect(() => {
     setLoading(true);
-    Promise.all([getProducts(categoryId), getSavedProducts()])
-      .then(([prods, saved]) => {
-        setProducts(prods);
-        setSavedIds(new Set(saved.map((s) => s.productId)));
-      })
+    getProducts(categoryId)
+      .then(setProducts)
       .finally(() => setLoading(false));
   }, [categoryId]);
 
-  const handleSave = async (product: FurnitureProduct) => {
-    try {
-      await saveProduct(product);
-      setSavedIds((prev) => new Set(prev).add(product.id));
-      onSaveChange?.();
-    } catch {
-      // already saved — ignore
-    }
+  const onSave = async (product: FurnitureProduct) => {
+    await handleSave(product);
+    onSaveChange?.();
   };
 
-  const handleUnsave = async (product: FurnitureProduct) => {
-    await unsaveProduct(product.id);
-    setSavedIds((prev) => {
-      const next = new Set(prev);
-      next.delete(product.id);
-      return next;
-    });
+  const onUnsave = async (product: FurnitureProduct) => {
+    await handleUnsave(product);
     onSaveChange?.();
   };
 
@@ -63,9 +52,7 @@ export default function FurnitureCategoryPage({ categoryId, onBack, onSaveChange
       </div>
 
       {loading ? (
-        <div className="fcat-page__loading">
-          <span className="fcat-page__spinner" />
-        </div>
+        <LoadingSpinner />
       ) : (
         <div className="fcat-page__grid">
           {products.map((product) => (
@@ -73,8 +60,8 @@ export default function FurnitureCategoryPage({ categoryId, onBack, onSaveChange
               key={product.id}
               product={product}
               isSaved={savedIds.has(product.id)}
-              onSave={() => handleSave(product)}
-              onUnsave={() => handleUnsave(product)}
+              onSave={() => onSave(product)}
+              onUnsave={() => onUnsave(product)}
             />
           ))}
         </div>

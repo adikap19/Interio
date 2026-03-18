@@ -56,23 +56,6 @@
   margin: 0;
 }
 
-.fcat-page__loading {
-  display: flex;
-  justify-content: center;
-  padding: 80px 0;
-}
-
-.fcat-page__spinner {
-  width: 36px;
-  height: 36px;
-  border: 3px solid #e2e2de;
-  border-top-color: #888888;
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-  display: inline-block;
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
 
 .fcat-page__grid {
   display: grid;

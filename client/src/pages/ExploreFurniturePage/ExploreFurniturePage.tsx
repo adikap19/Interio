@@ -1,3 +1,4 @@
+import PageHeader from "../../components/ui/PageHeader/PageHeader";
 import "./ExploreFurniturePage.css";
 
 export interface FurnitureCategory {
@@ -177,13 +178,11 @@ interface Props {
 export default function ExploreFurniturePage({ onSelectCategory }: Props) {
   return (
     <div className="furniture-page">
-      <div className="furniture-page__header">
-        <p className="furniture-page__eyebrow">Browse by category</p>
-        <h1 className="furniture-page__title">Explore Furnitures</h1>
-        <p className="furniture-page__subtitle">
-          Find the perfect pieces for every room in your home
-        </p>
-      </div>
+      <PageHeader
+        eyebrow="Browse by category"
+        title="Explore Furnitures"
+        subtitle="Find the perfect pieces for every room in your home"
+      />
 
       <div className="furniture-page__grid">
         {FURNITURE_CATEGORIES.map((cat) => (

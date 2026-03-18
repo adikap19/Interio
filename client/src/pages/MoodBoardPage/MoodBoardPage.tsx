@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { SavedProduct } from "../../types";
 import { getSavedProducts, unsaveProduct } from "../../services/furniture";
 import { FURNITURE_CATEGORIES } from "../ExploreFurniturePage/ExploreFurniturePage";
+import LoadingSpinner from "../../components/ui/LoadingSpinner/LoadingSpinner";
 import "./MoodBoardPage.css";
 
 interface Props {
@@ -71,9 +72,7 @@ export default function MoodBoardPage({ refreshKey }: Props) {
   if (loading) {
     return (
       <div className="moodboard-page">
-        <div className="moodboard-page__loading">
-          <span className="moodboard-page__spinner" />
-        </div>
+        <LoadingSpinner />
       </div>
     );
   }
