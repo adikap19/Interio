@@ -3,9 +3,7 @@
   padding: 4rem 3rem 5rem;
   margin-top: 116px;
   min-height: 100vh;
-  background:
-    linear-gradient(rgba(250,250,248,0.55), rgba(250,250,248,0.65)),
-    url("https://i.pinimg.com/1200x/1a/a6/51/1aa6513a118d80e96efb5b5aa660b2dc.jpg") center/cover no-repeat fixed;
+  background: #fafaf8;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,22 +15,6 @@
   margin-bottom: 48px;
 }
 
-.sys-header h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 600;
-  color: #111111;
-  margin: 0 0 10px;
-  letter-spacing: -0.02em;
-}
-
-.sys-header__sub {
-  font-size: 15px;
-  color: #333333;
-  font-weight: 500;
-  margin: 0 0 28px;
-  font-family: 'Lora', serif;
-  text-shadow: 0 1px 8px rgba(255,255,255,0.85);
-}
 
 .sys-steps {
   display: flex;
@@ -61,12 +43,12 @@
 /* ── Card ── */
 .sys-card {
   background: #ffffff;
-  border: 1px solid #e8e8e4;
-  border-radius: 24px;
+  border: 1px solid #ebebе7;
+  border-radius: 28px;
   padding: 48px;
   width: 100%;
   max-width: 640px;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 48px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .sys-card__title {
@@ -89,28 +71,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 20px 12px;
-  border: 1.5px solid #e2e2de;
-  border-radius: 16px;
-  background: #fafaf8;
+  gap: 10px;
+  padding: 22px 12px;
+  border: 1.5px solid #e8e8e4;
+  border-radius: 18px;
+  background: #f7f6f3;
   cursor: pointer;
   font: inherit;
   font-size: 13px;
   font-weight: 600;
-  color: #444444;
-  transition: border-color 0.18s, background 0.18s, transform 0.18s;
+  color: #555555;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s, color 0.2s;
 }
 
 .sys-room-btn:hover {
-  border-color: #aaaaaa;
-  transform: translateY(-2px);
+  border-color: #111111;
+  background: #111111;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
 }
 
 .sys-room-btn--active {
   border-color: #111111;
   background: #111111;
   color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
 }
 
 .sys-room-btn__icon {
@@ -282,19 +268,22 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.18s, transform 0.18s, opacity 0.18s;
+  transition: background 0.18s, transform 0.18s, box-shadow 0.18s, opacity 0.18s;
   margin-left: auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
 }
 
 .sys-next-btn:disabled, .sys-submit-btn:disabled {
   opacity: 0.35;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
 }
 
 .sys-next-btn:not(:disabled):hover, .sys-submit-btn:not(:disabled):hover {
   background: #333333;
   transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.25);
 }
 
 .sys-submit-btn {

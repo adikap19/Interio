@@ -7,6 +7,7 @@ import StepStyle from "../../components/styleWizard/StepStyle";
 import StepPalette from "../../components/styleWizard/StepPalette";
 import StepBudget from "../../components/styleWizard/StepBudget";
 import RecommendationsView from "../../components/styleWizard/RecommendationsView";
+import PageHeader from "../../components/ui/PageHeader/PageHeader";
 import "./StyleYourSpacePage.css";
 
 interface FormState {
@@ -49,8 +50,11 @@ export default function StyleYourSpacePage() {
     <div className="sys-page">
       {step < 5 && (
         <div className="sys-header">
-          <h1>Style Your Space</h1>
-          <p className="sys-header__sub">Answer a few questions and get personalized furniture recommendations</p>
+          <PageHeader
+            eyebrow="Personalized for you"
+            title="Style Your Space"
+            subtitle="Answer a few questions and get personalized furniture recommendations"
+          />
           <div className="sys-steps">
             {[1, 2, 3, 4].map((s) => (
               <div
