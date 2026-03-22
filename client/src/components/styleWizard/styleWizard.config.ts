@@ -40,9 +40,10 @@ export const STYLE_OPTIONS: StyleOption[] = [
 ];
 
 export const COLOR_PALETTES: PaletteOption[] = [
-  { id: "warm", label: "Warm Neutrals", swatch: ["#e8ddd0", "#c9b99a", "#8b7355"] },
-  { id: "cool", label: "Cool Tones", swatch: ["#d4dde4", "#a8b8c8", "#5c7a8a"] },
-  { id: "dark", label: "Bold & Dark", swatch: ["#2a2a2a", "#444", "#666"] },
-  { id: "natural", label: "Natural & Green", swatch: ["#d8e4d0", "#a8c090", "#5a7a50"] },
-  { id: "white", label: "Pure White", swatch: ["#ffffff", "#f5f5f3", "#e8e8e4"] },
+  { id: "white",  label: "White & Off-White", swatch: ["#ffffff", "#f5f5f0", "#e8e8e2"] },
+  { id: "beige",  label: "Beige & Warm",      swatch: ["#f0e8d8", "#d4b896", "#b08060"] },
+  { id: "grey",   label: "Grey & Cool",       swatch: ["#e4e4e4", "#a8a8a8", "#606060"] },
+  { id: "dark",   label: "Black & Dark",      swatch: ["#2a2a2a", "#444444", "#666666"] },
+  { id: "oak",    label: "Oak & Natural Wood",swatch: ["#d4aa78", "#b8895a", "#8b6240"] },
+  { id: "pine",   label: "Pine & Light Wood", swatch: ["#e8d4b0", "#c8a870", "#a07840"] },
 ];

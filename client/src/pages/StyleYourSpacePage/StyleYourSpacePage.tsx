@@ -3,7 +3,6 @@ import api from "../../services/api";
 import { FurnitureProduct } from "../../types";
 import { useSaveProduct } from "../../hooks/useSaveProduct";
 import StepRoom from "../../components/styleWizard/StepRoom";
-import StepStyle from "../../components/styleWizard/StepStyle";
 import StepPalette from "../../components/styleWizard/StepPalette";
 import StepBudget from "../../components/styleWizard/StepBudget";
 import RecommendationsView from "../../components/styleWizard/RecommendationsView";
@@ -12,12 +11,11 @@ import "./StyleYourSpacePage.css";
 
 interface FormState {
   roomType: string;
-  style: string;
   colorPalette: string;
   budget: number;
 }
 
-const INITIAL_FORM: FormState = { roomType: "", style: "", colorPalette: "", budget: 5000 };
+const INITIAL_FORM: FormState = { roomType: "", colorPalette: "", budget: 5000 };
 
 export default function StyleYourSpacePage() {
   const [step, setStep] = useState(1);
@@ -34,7 +32,7 @@ export default function StyleYourSpacePage() {
     try {
       const { data } = await api.post("/furniture/recommend", form);
       setResults(data);
-      setStep(5);
+      setStep(4);
     } finally {
       setLoading(false);
     }
@@ -48,7 +46,7 @@ export default function StyleYourSpacePage() {
 
   return (
     <div className="sys-page">
-      {step < 5 && (
+      {step < 4 && (
         <div className="sys-header">
           <PageHeader
             eyebrow="Personalized for you"
@@ -56,7 +54,7 @@ export default function StyleYourSpacePage() {
             subtitle="Answer a few questions and get personalized furniture recommendations"
           />
           <div className="sys-steps">
-            {[1, 2, 3, 4].map((s) => (
+            {[1, 2, 3].map((s) => (
               <div
                 key={s}
                 className={`sys-step-dot${step === s ? " sys-step-dot--active" : step > s ? " sys-step-dot--done" : ""}`}
@@ -67,23 +65,23 @@ export default function StyleYourSpacePage() {
       )}
 
       {step === 1 && <StepRoom value={form.roomType} onChange={set("roomType")} onNext={() => setStep(2)} />}
-      {step === 2 && <StepStyle value={form.style} onChange={set("style")} onNext={() => setStep(3)} onBack={() => setStep(1)} />}
-      {step === 3 && <StepPalette value={form.colorPalette} onChange={set("colorPalette")} onNext={() => setStep(4)} onBack={() => setStep(2)} />}
-      {step === 4 && (
+      {step === 2 && <StepPalette value={form.colorPalette} onChange={set("colorPalette")} onNext={() => setStep(3)} onBack={() => setStep(1)} />}
+      {step === 3 && (
         <StepBudget
-          {...form}
+          budget={form.budget}
+          roomType={form.roomType}
+          colorPalette={form.colorPalette}
           loading={loading}
           onChange={set("budget") as (v: number) => void}
           onSubmit={handleSubmit}
-          onBack={() => setStep(3)}
+          onBack={() => setStep(2)}
         />
       )}
-      {step === 5 && results && (
+      {step === 4 && results && (
         <RecommendationsView
           results={results}
           savedIds={savedIds}
           roomType={form.roomType}
-          style={form.style}
           budget={form.budget}
           onSave={handleSave}
           onUnsave={handleUnsave}

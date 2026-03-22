@@ -19,6 +19,7 @@ export interface FurnitureProduct {
   imageUrl: string;
   storeUrl: string;
   storeName: string;
+  colors?: string[];
 }
 
 export interface SavedProduct {

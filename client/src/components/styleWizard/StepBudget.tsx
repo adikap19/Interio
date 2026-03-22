@@ -1,9 +1,8 @@
-import { ROOM_TYPES, STYLE_OPTIONS, COLOR_PALETTES } from "../../components/styleWizard/styleWizard.config";
+import { ROOM_TYPES, COLOR_PALETTES } from "../../components/styleWizard/styleWizard.config";
 
 interface Props {
   budget: number;
   roomType: string;
-  style: string;
   colorPalette: string;
   loading: boolean;
   onChange: (value: number) => void;
@@ -12,7 +11,7 @@ interface Props {
 }
 
 export default function StepBudget({
-  budget, roomType, style, colorPalette, loading, onChange, onSubmit, onBack,
+  budget, roomType, colorPalette, loading, onChange, onSubmit, onBack,
 }: Props) {
   return (
     <div className="sys-card">
@@ -39,10 +38,6 @@ export default function StepBudget({
         <div className="sys-summary__item">
           <span>Room</span>
           <strong>{ROOM_TYPES.find((r) => r.id === roomType)?.label}</strong>
-        </div>
-        <div className="sys-summary__item">
-          <span>Style</span>
-          <strong>{STYLE_OPTIONS.find((s) => s.id === style)?.label}</strong>
         </div>
         <div className="sys-summary__item">
           <span>Palette</span>
